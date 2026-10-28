@@ -1,8 +1,12 @@
 {
-  "id": "universal-tabletop-system",
-  "title": "Universal Tabletop System",
-  "description": "The Universal Tabletop System for FoundryVTT, by Metamorphic Digital.",
+  "id": "twilight-sword",
+  "title": "Twilight Sword (Unofficial)",
+  "description": "Unofficial Twilight Sword system for foundryvtt",
   "authors": [
+    {
+      "name": "FelGoose",
+      "discord": "felgoose"
+    },
     {
       "name": "Joseph M.",
       "discord": "chaosos"
@@ -12,10 +16,10 @@
       "discord": "zhell9201"
     }
   ],
-  "url": "https://github.com/MetaMorphic-Digital/universal-tabletop-system",
+  "url": "https://github.com/FelGoose/twilight-sword",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "https://github.com/MetaMorphic-Digital/universal-tabletop-system/issues",
+  "bugs": "https://github.com/FelGoose/twilight-sword/issues",
   "changelog": "CHANGELOG.md",
   "media": [
     {
@@ -45,7 +49,7 @@
   ],
   "packs": [],
   "packFolders": [],
-  "manifest": "https://github.com/MetaMorphic-Digital/universal-tabletop-system/releases/latest/download/system.json",
+  "manifest": "https://github.com/FelGoose/twilight-sword/releases/latest/download/system.json",
   "download": "AUTOMATIC",
   "background": "",
   "initiative": "1d20",
