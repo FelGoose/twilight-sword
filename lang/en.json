@@ -42,10 +42,37 @@
             "label": "Hearts"
           },
           "bonus": {
-            "label": "Bonus"
+            "label": "Bonus Hearts"
           },
           "temp": {
             "label": "Temporary Hearts"
+          }
+        },
+        "stamina": {
+          "label": "Stamina",
+          "value": {
+            "label": "Stamina"
+          },
+          "bonus": {
+            "label": "Bonus Stamina"
+          }
+        },
+        "armor": {
+          "label": "Armor"
+        },
+        "boon": {
+          "label": "Boon"
+        },
+        "zin": {
+          "label": "Zin",
+          "green": {
+            "label": "Green Zin"
+          },
+          "blue": {
+            "label": "Blue Zin"
+          },
+          "red": {
+            "label": "Red Zin"
           }
         },
         "abilities": {
