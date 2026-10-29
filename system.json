@@ -64,7 +64,8 @@
   "documentTypes": {
     "Actor": {
       "token": {},
-      "chess": {}
+      "chess": {},
+      "champion": {}
     },
     "Combatant": {
       "player": {}

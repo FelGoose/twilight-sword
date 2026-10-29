@@ -31,6 +31,22 @@
         }
       }
     },
+    "Champion": {
+      "FIELDS": {
+        "origin": {
+          "label": "Origin"
+        },
+        "hearts": {
+          "label": "Hearts",
+          "value": {
+            "label": "Value"
+          },
+          "max": {
+            "label": "Max"
+          }
+        }
+      }
+    },
     "Sheets": {
       "Labels": {
         "ActorSheet": "Default UTS Actor Sheet",
@@ -64,7 +80,8 @@
   "TYPES": {
     "Actor": {
       "chess": "Chess Piece",
-      "token": "Game Token"
+      "token": "Game Token",
+      "champion": "Champion"
     },
     "Combatant": {
       "player": "Player"
