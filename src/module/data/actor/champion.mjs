@@ -8,9 +8,20 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
       origin: new foundry.data.fields.StringField(),
-      hearts: new foundry.data.fields.NumberField({
-        required: true,
-        integer: true,
+      hearts: new foundry.data.fields.SchemaField({
+        value: new foundry.data.fields.NumberField({
+          integer: true,
+          initial: 1,
+        }),
+        bonus: new foundry.data.fields.NumberField({
+          integer: true,
+          min: 0,
+          initial: 0,
+        }),
+        temp: new foundry.data.fields.NumberField({
+          integer: true,
+          initial: 0,
+        })
       }),
       abilities: new foundry.data.fields.SchemaField({
         str: new foundry.data.fields.SchemaField({
@@ -80,4 +91,8 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
       })
     };
   }
+  prepareDerivedData(){
+    this.hearts.max = Math.min(10 + this.abilities.vit.value + this.hearts.bonus, 35)
+  }
+
 }
