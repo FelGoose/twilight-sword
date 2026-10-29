@@ -44,6 +44,57 @@
           "max": {
             "label": "Max"
           }
+        },
+        "abilities": {
+          "label": "Abilities",
+          "str": {
+            "label": "Strength",
+            "value": {
+              "label": "Strength"
+              }
+            },
+          "agl": {
+            "label": "Agility",
+            "value": {
+              "label": "Agility"
+            }
+          },
+          "vit": {
+            "label": "Vitality",
+            "value": {
+              "label": "Vitality"
+            }
+          },
+          "per": {
+            "label": "Perception",
+            "value": {
+              "label": "Perception"
+            }
+          },
+          "wil": {
+            "label": "Will",
+            "value": {
+              "label": "Will"
+            }
+          },
+          "kno": {
+            "label": "Knowledge",
+            "value": {
+              "label": "Knowledge"
+            }
+          },
+          "cha": {
+            "label": "Charisma",
+            "value": {
+              "label": "Charisma"
+            }
+          },
+          "ste": {
+            "label": "Stealth",
+            "value": {
+              "label": "Stealth"
+            }
+          }
         }
       }
     },
