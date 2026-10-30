@@ -6,18 +6,10 @@
     {
       "name": "FelGoose",
       "discord": "felgoose"
-    },
-    {
-      "name": "Joseph M.",
-      "discord": "chaosos"
-    },
-    {
-      "name": "Zhell",
-      "discord": "zhell9201"
     }
   ],
   "url": "https://github.com/FelGoose/twilight-sword",
-  "license": "LICENSE.txt",
+  "license": "LICENSE.md",
   "readme": "README.md",
   "bugs": "https://github.com/FelGoose/twilight-sword/issues",
   "changelog": "CHANGELOG.md",
@@ -52,15 +44,15 @@
   "manifest": "https://github.com/FelGoose/twilight-sword/releases/latest/download/system.json",
   "download": "AUTOMATIC",
   "background": "",
-  "initiative": "1d20",
+  "initiative": "1d12",
   "grid": {
     "type": 1,
     "distance": 1,
     "units": "in",
     "diagonals": 0
   },
-  "primaryTokenAttribute": "value",
-  "secondaryTokenAttribute": "",
+  "primaryTokenAttribute": "hearts",
+  "secondaryTokenAttribute": "stamina",
   "documentTypes": {
     "Actor": {
       "champion": {}
