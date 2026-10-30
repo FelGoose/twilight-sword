@@ -98,6 +98,10 @@
       }
     },
     "Roll": {
+      "rolled": "Rolled",
+      "target": "Target",
+      "advantage": "Advantage",
+      "disadvantage": "Disadvantage",
       "outcome": {
           "success": "Success",
           "failure": "Failure",

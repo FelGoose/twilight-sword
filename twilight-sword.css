@@ -86,19 +86,115 @@
 }
 
 .ability-roll {
+  --outcome-color: #8a8a8a;
+
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 8px;
+  gap: 6px;
+  padding: 6px 8px 8px;
   text-align: center;
+  border: 1px solid color-mix(in srgb, var(--outcome-color) 60%, transparent);
+  border-radius: 6px;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--outcome-color) 18%, transparent),
+    transparent 70%
+  );
 
-  .outcomeLabel {
-    font-size: 1.8rem;
-    text-transform: uppercase;
+  &.success { --outcome-color: #3f9a4f; }
+  &.failure { --outcome-color: #b04a3c; }
+  &.criticalSuccess { --outcome-color: #d4a72c; }
+  &.criticalFailure { --outcome-color: #8e2a8a; }
+
+  .ability-roll-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid color-mix(in srgb, var(--outcome-color) 40%, transparent);
+
+    .ability {
+      font-size: 1.15rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .roll-mode {
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      background: color-mix(in srgb, currentColor 12%, transparent);
+    }
   }
 
-  .abilityTarget, .ability, .champion{
-    font-size: 1.3rem;
-    opacity: 0.7;
+  .ability-roll-result {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 14px;
+
+    .result-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .result-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.6;
+    }
+
+    .die, .abilityTarget {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+
+    .die {
+      border: 2px solid var(--outcome-color);
+      background: color-mix(in srgb, var(--outcome-color) 20%, transparent);
+
+      &.critical {
+        box-shadow: 0 0 8px var(--outcome-color);
+      }
+    }
+
+    .abilityTarget {
+      border: 2px dashed color-mix(in srgb, currentColor 35%, transparent);
+    }
+
+    .versus {
+      align-self: center;
+      padding-top: 14px;
+      font-size: 1.2rem;
+      opacity: 0.5;
+    }
+
+    .target-breakdown {
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+  }
+
+  .outcomeLabel {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--outcome-color);
+  }
+
+  .dice-roll {
+    margin-top: 2px;
   }
 }

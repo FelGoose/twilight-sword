@@ -1,6 +1,25 @@
 <div class="ability-roll {{rollOutcome}}">
-  <span class="champion">{{name}}</span>
-  <strong class="ability">{{abilityLabel}}</strong>
-  <strong class="outcomeLabel">{{outcomeLabel}}</strong>
-  <span class="abilityTarget">{{target}}</span>
+  <header class="ability-roll-header">
+    <span class="ability">{{abilityLabel}}</span>
+    {{#if rollMode}}<span class="roll-mode">{{rollMode}}</span>{{/if}}
+  </header>
+
+  <div class="ability-roll-result">
+    <div class="result-block">
+      <span class="result-label">{{localize "TS.Roll.rolled"}}</span>
+      <span class="die{{#if isCritical}} critical{{/if}}">{{die}}</span>
+    </div>
+    {{#unless isCritical}}
+    <span class="versus">&le;</span>
+    <div class="result-block">
+      <span class="result-label">{{localize "TS.Roll.target"}}</span>
+      <span class="abilityTarget">{{target}}</span>
+      {{#if modifier}}<span class="target-breakdown">{{abilityValue}} {{modifier}}</span>{{/if}}
+    </div>
+    {{/unless}}
+  </div>
+
+  <div class="outcomeLabel">{{outcomeLabel}}</div>
+
+  {{{rollHTML}}}
 </div>
