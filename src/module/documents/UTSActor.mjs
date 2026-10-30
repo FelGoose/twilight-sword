@@ -49,6 +49,13 @@ export default class UTSActor extends foundry.documents.Actor {
     } else {
       rollOutcome = "failure";
     }
+
+    const messageData = {
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      flavor: `${key}: ${rollOutcome}`,
+    };
+    await roll.toMessage(messageData);
+
     return { roll, die, target, rollOutcome };
   }
 }
