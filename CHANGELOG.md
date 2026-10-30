@@ -1,18 +1,5 @@
-## 1.2.0
+# Changelog
 
-- Added "Resource" property to game tokens, which includes a max & current value for a bar.
-- Removed assumptions about AE behavior in anticipation of v14 updates.
+## Unreleased
 
-## 1.1.2
-
-- Added "Count" property to game tokens
-
-## 1.1.1
-
-- Fixed display of actor image for non-square images.
-
-## 1.1.0
-
-- Added "Game Token" as a generic default actor type.
-- Active Effects with expired durations are now suppressed.
-- Minor styling fixes.
+- Forked from Universal Tabletop System v1.2.1 ([upstream changelog at fork point](https://github.com/MetaMorphic-Digital/universal-tabletop-system/blob/v1.2.3/CHANGELOG.md)).
