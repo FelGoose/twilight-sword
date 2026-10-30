@@ -85,3 +85,20 @@
   }
 }
 
+.ability-roll {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  text-align: center;
+
+  .outcomeLabel {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  .abilityTarget, .ability, .champion{
+    font-size: 1.3rem;
+    opacity: 0.7;
+  }
+}

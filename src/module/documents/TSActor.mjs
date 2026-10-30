@@ -1,3 +1,5 @@
+import { systemPath } from "../constants.mjs";
+
 /**
  * A simple extension that adds a hook at the end of data prep.
  */
@@ -53,9 +55,24 @@ export default class TSActor extends foundry.documents.Actor {
       rollOutcome = "failure";
     }
 
+    const outcomeLabel = game.i18n.localize(`TS.Roll.outcome.${rollOutcome}`);
+    const abilityLabel = game.i18n.localize(`TS.Champion.FIELDS.abilities.${key}.label`);
+
+    const htmlData = {
+      rollOutcome,
+      name: this.name,
+      abilityLabel,
+      outcomeLabel,
+      target,
+    };
+    const html = await foundry.applications.handlebars.renderTemplate(
+      systemPath("templates/chat/ability-roll.hbs"),
+      htmlData,
+    );
+
     const messageData = {
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `${key}: ${rollOutcome}`,
+      content: html,
     };
     await roll.toMessage(messageData);
 
