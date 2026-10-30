@@ -1,28 +1,28 @@
 {
-  "name": "universal-tabletop-system",
+  "name": "twilight-sword",
   "version": "1.0.0",
-  "description": "Universal Tabletop System",
+  "description": "Unofficial Twilight Sword system for Foundry VTT",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
     "createSymlinks": "node ./tools/create-symlinks.mjs",
     "postinstall": "npm run createSymlinks",
-    "lint": "eslint uts.mjs src/module/**/* templates/**/*",
-    "lint:fix": "eslint --fix uts.mjs src/module/**/* templates/**/*"
+    "lint": "eslint twilight-sword.mjs src/module/**/* templates/**/*",
+    "lint:fix": "eslint --fix twilight-sword.mjs src/module/**/* templates/**/*"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MetaMorphic-Digital/universal-tabletop-system.git"
+    "url": "git+https://github.com/FelGoose/twilight-sword.git"
   },
   "keywords": [
     "fvtt",
     "system"
   ],
-  "author": "MetaMorphic Digital",
+  "author": "FelGoose",
   "bugs": {
-    "url": "https://github.com/MetaMorphic-Digital/universal-tabletop-system/issues"
+    "url": "https://github.com/FelGoose/twilight-sword/issues"
   },
-  "homepage": "https://github.com/MetaMorphic-Digital/universal-tabletop-system#readme",
+  "homepage": "https://github.com/FelGoose/twilight-sword#readme",
   "devDependencies": {
     "@eslint/js": "^9.27.0",
     "@html-eslint/eslint-plugin": "^0.26.0",

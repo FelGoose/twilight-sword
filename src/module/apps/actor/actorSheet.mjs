@@ -4,12 +4,12 @@ import { systemPath } from "../../constants.mjs";
 const { api, sheets } = foundry.applications;
 
 /**
- * Extend the basic ActorSheet with some very simple modifications.
+ * The default actor sheet for Twilight Sword.
  */
-export class UTSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheet) {
+export class TSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheet) {
   /** @inheritdoc */
   static DEFAULT_OPTIONS = {
-    classes: ["uts", "actor", "standard-form"],
+    classes: ["twilight-sword", "actor", "standard-form"],
     position: {
       width: 600,
       height: 600,
@@ -41,7 +41,7 @@ export class UTSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorSh
         },
       ],
       initial: "properties",
-      labelPrefix: "UTS.Sheets.Tabs",
+      labelPrefix: "TS.Sheets.Tabs",
     },
   };
 
@@ -200,7 +200,7 @@ export class UTSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorSh
   /**
    * Renders an embedded document's sheet.
    *
-   * @this UTSActorSheet
+   * @this TSActorSheet
    * @param {PointerEvent} event   The originating click event.
    * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
    * @protected
@@ -215,7 +215,7 @@ export class UTSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorSh
   /**
    * Handles item deletion.
    *
-   * @this UTSActorSheet
+   * @this TSActorSheet
    * @param {PointerEvent} event   The originating click event.
    * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
    * @protected
@@ -230,7 +230,7 @@ export class UTSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorSh
   /**
    * Handle creating a new Owned Item or ActiveEffect for the actor using initial data defined in the HTML dataset.
    *
-   * @this UTSActorSheet
+   * @this TSActorSheet
    * @param {PointerEvent} event   The originating click event.
    * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
    * @private
@@ -255,7 +255,7 @@ export class UTSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorSh
   /**
    * Determines effect parent to pass to helper.
    *
-   * @this UTSActorSheet
+   * @this TSActorSheet
    * @param {PointerEvent} event   The originating click event.
    * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
    * @private

@@ -33,8 +33,8 @@
     "minimum": "13.351",
     "verified": "14"
   },
-  "esmodules": ["uts.mjs"],
-  "styles": ["uts.css"],
+  "esmodules": ["twilight-sword.mjs"],
+  "styles": ["twilight-sword.css"],
   "languages": [
     {
       "lang": "en",
@@ -63,8 +63,6 @@
   "secondaryTokenAttribute": "",
   "documentTypes": {
     "Actor": {
-      "token": {},
-      "chess": {},
       "champion": {}
     },
     "Combatant": {
@@ -74,7 +72,7 @@
   "flags": {
     "hotReload": {
       "extensions": ["css", "html", "hbs", "json"],
-      "paths": ["uts.css", "templates", "lang"]
+      "paths": ["twilight-sword.css", "templates", "lang"]
     }
   }
 }

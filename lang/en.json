@@ -1,36 +1,5 @@
 {
-  "UTS": {
-    "Chess": {
-      "Pieces": {
-        "P": "Pawn",
-        "N": "Knight",
-        "B": "Bishop",
-        "R": "Rook",
-        "Q": "Queen",
-        "K": "King"
-      },
-      "FIELDS": {
-        "piece": {
-          "label": "Piece"
-        }
-      }
-    },
-    "GameToken": {
-      "FIELDS": {
-        "count": {
-          "label": "Count"
-        },
-        "resource": {
-          "label": "Resource",
-          "value": {
-            "label": "Value"
-          },
-          "max": {
-            "label": "Max"
-          }
-        }
-      }
-    },
+  "TS": {
     "Champion": {
       "FIELDS": {
         "origin": {
@@ -138,8 +107,8 @@
     },
     "Sheets": {
       "Labels": {
-        "ActorSheet": "Default UTS Actor Sheet",
-        "ItemSheet": "Default UTS Item Sheet"
+        "ActorSheet": "Default Twilight Sword Actor Sheet",
+        "ItemSheet": "Default Twilight Sword Item Sheet"
       },
       "Tabs": {
         "properties": "Properties",
@@ -168,8 +137,6 @@
   },
   "TYPES": {
     "Actor": {
-      "chess": "Chess Piece",
-      "token": "Game Token",
       "champion": "Champion"
     },
     "Combatant": {

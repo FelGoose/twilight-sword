@@ -4,7 +4,6 @@
  */
 export function localizeHelper(object) {
   for (const [key, value] of Object.entries(object)) {
-    // const type = foundry.utils.getType(value)
     switch (typeof value) {
       case "object":
         if (value) localizeHelper(value);
@@ -27,17 +26,17 @@ export function prepareActiveEffectCategories(effects) {
   const categories = {
     temporary: {
       type: "temporary",
-      label: game.i18n.localize("UTS.Effect.Temporary"),
+      label: game.i18n.localize("TS.Effect.Temporary"),
       effects: [],
     },
     passive: {
       type: "passive",
-      label: game.i18n.localize("UTS.Effect.Passive"),
+      label: game.i18n.localize("TS.Effect.Passive"),
       effects: [],
     },
     inactive: {
       type: "inactive",
-      label: game.i18n.localize("UTS.Effect.Inactive"),
+      label: game.i18n.localize("TS.Effect.Inactive"),
       effects: [],
     },
   };

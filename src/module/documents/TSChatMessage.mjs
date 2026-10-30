@@ -1,15 +1,15 @@
 /**
  * A simple extension that adds a hook at the end of data prep.
  */
-export default class UTSActiveEffect extends foundry.documents.ActiveEffect {
+export default class TSChatMessage extends foundry.documents.ChatMessage {
   /** @inheritdoc */
   prepareDerivedData() {
     super.prepareDerivedData();
 
     /**
      * Flexible hook for modules to alter derived document data.
-     * @param {UTSActiveEffect} effect      The effect preparing derived data.
+     * @param {TSChatMessage} message      The chat message preparing derived data.
      */
-    Hooks.callAll("UTS.prepareActiveEffectData", this);
+    Hooks.callAll("TS.prepareChatMessageData", this);
   }
 }

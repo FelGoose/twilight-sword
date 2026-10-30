@@ -1,30 +1,32 @@
 /**
  * A simple extension that adds a hook at the end of data prep.
  */
-export default class UTSActor extends foundry.documents.Actor {
+export default class TSActor extends foundry.documents.Actor {
   /** @inheritdoc */
   prepareDerivedData() {
     super.prepareDerivedData();
 
     /**
      * Flexible hook for modules to alter derived document data.
-     * @param {UTSActor} actor      The actor preparing derived data.
+     * @param {TSActor} actor      The actor preparing derived data.
      */
-    Hooks.callAll("UTS.prepareActorData", this);
+    Hooks.callAll("TS.prepareActorData", this);
   }
 
+  /* -------------------------------------------------- */
+
   /**
- * Determines if you have advantage, disadvantage, or modifiers.
- * Applies options as needed and rolls the dice.
- * Determines if you succeed, fail, critical succeed, or critical fail.
- * Posts chat message based on roll.
- * @param {string} key  Name of the ability used.
- * @param {object} options   Options for the roll.
- * @param {boolean} [options.advantage]  Determine if roll has advantage.
- * @param {boolean} [options.disadvantage]   Determine if roll has disadvantage.
- * @param {number} [options.modifier]   Determine if roll has modifier.
- * @returns {Promise<object>} The whole roll, die rolled, target number, outcome of roll.
- */
+   * Determines if you have advantage, disadvantage, or modifiers.
+   * Applies options as needed and rolls the dice.
+   * Determines if you succeed, fail, critical succeed, or critical fail.
+   * Posts chat message based on roll.
+   * @param {string} key  Name of the ability used.
+   * @param {object} options   Options for the roll.
+   * @param {boolean} [options.advantage]  Determine if roll has advantage.
+   * @param {boolean} [options.disadvantage]   Determine if roll has disadvantage.
+   * @param {number} [options.modifier]   Determine if roll has modifier.
+   * @returns {Promise<object>} The whole roll, die rolled, target number, outcome of roll.
+   */
   async rollAbility(key, { advantage = false, disadvantage = false, modifier = 0 } = {}) {
     let formula;
     if (advantage && !disadvantage) {

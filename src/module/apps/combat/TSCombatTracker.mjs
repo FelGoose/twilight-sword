@@ -1,12 +1,12 @@
 /**
  * A custom combat tracker that adds support for adding "player" type combatants.
  */
-export class UTSCombatTracker extends foundry.applications.sidebar.tabs.CombatTracker {
+export class TSCombatTracker extends foundry.applications.sidebar.tabs.CombatTracker {
   /** @inheritdoc */
   _getCombatContextOptions() {
     const options = super._getCombatContextOptions();
     options.unshift({
-      name: "UTS.Combat.AddPlayer",
+      name: "TS.Combat.AddPlayer",
       icon: "<i class=\"fa-solid fa-user\"></i>",
       condition: () => game.user.isGM,
       callback: () => this.viewed.addPlayer(),

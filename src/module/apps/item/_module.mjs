@@ -1,1 +1,1 @@
-export { UTSItemSheet } from "./itemSheet.mjs";
+export { TSItemSheet } from "./itemSheet.mjs";

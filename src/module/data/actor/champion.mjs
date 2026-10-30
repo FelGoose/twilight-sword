@@ -1,6 +1,9 @@
+/**
+ * Data model for Twilight Sword champions.
+ */
 export default class ChampionModel extends foundry.abstract.TypeDataModel {
   /** @inheritdoc */
-  static LOCALIZATION_PREFIXES = ["UTS.Champion"];
+  static LOCALIZATION_PREFIXES = ["TS.Champion"];
 
   /* -------------------------------------------------- */
 

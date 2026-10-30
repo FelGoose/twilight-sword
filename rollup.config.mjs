@@ -1,7 +1,7 @@
 export default {
-  input: "./uts.mjs",
+  input: "./twilight-sword.mjs",
   output: {
-    file: "./public/uts.mjs",
+    file: "./public/twilight-sword.mjs",
     format: "esm"
   }
 };

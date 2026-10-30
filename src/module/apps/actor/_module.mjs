@@ -1,1 +1,1 @@
-export { UTSActorSheet } from "./actorSheet.mjs";
+export { TSActorSheet } from "./actorSheet.mjs";

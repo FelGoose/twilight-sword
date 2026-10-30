@@ -4,15 +4,15 @@ import { systemPath } from "../../constants.mjs";
 const { api, sheets } = foundry.applications;
 
 /**
- * Extend the basic ItemSheet with some very simple modifications.
+ * The default item sheet for Twilight Sword.
  */
-export class UTSItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSheet) {
+export class TSItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSheet) {
   /** @inheritdoc */
   static DEFAULT_OPTIONS = {
     position: {
       width: 600,
     },
-    classes: ["uts", "item", "standard-form"],
+    classes: ["twilight-sword", "item", "standard-form"],
     actions: {
       viewDoc: this.#viewEffect,
       createDoc: this.#createEffect,
@@ -39,7 +39,7 @@ export class UTSItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShee
         },
       ],
       initial: "properties",
-      labelPrefix: "UTS.Sheets.Tabs",
+      labelPrefix: "TS.Sheets.Tabs",
     },
   };
 
@@ -173,7 +173,7 @@ export class UTSItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShee
   /**
    * Renders an embedded document's sheet.
    *
-   * @this UTSItemSheet
+   * @this TSItemSheet
    * @param {PointerEvent} event   The originating click event.
    * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
    * @protected
@@ -186,9 +186,9 @@ export class UTSItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShee
   /* -------------------------------------------------- */
 
   /**
-   * Handles item deletion.
+   * Handles effect deletion.
    *
-   * @this UTSItemSheet
+   * @this TSItemSheet
    * @param {PointerEvent} event   The originating click event.
    * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
    * @protected
@@ -201,9 +201,9 @@ export class UTSItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShee
   /* -------------------------------------------------- */
 
   /**
-   * Handle creating a new Owned Item or ActiveEffect for the actor using initial data defined in the HTML dataset.
+   * Handle creating a new ActiveEffect for the item using initial data defined in the HTML dataset.
    *
-   * @this UTSItemSheet
+   * @this TSItemSheet
    * @param {PointerEvent} event   The originating click event.
    * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
    * @private
@@ -229,7 +229,7 @@ export class UTSItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemShee
   /**
    * Determines effect parent to pass to helper.
    *
-   * @this UTSItemSheet
+   * @this TSItemSheet
    * @param {PointerEvent} event   The originating click event.
    * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
    * @private
