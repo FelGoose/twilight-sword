@@ -17,6 +17,7 @@ export default class UTSActor extends foundry.documents.Actor {
  * Determines if you have advantage, disadvantage, or modifiers.
  * Applies options as needed and rolls the dice.
  * Determines if you succeed, fail, critical succeed, or critical fail.
+ * Posts chat message based on roll.
  * @param {string} key  Name of the ability used.
  * @param {object} options   Options for the roll.
  * @param {boolean} [options.advantage]  Determine if roll has advantage.

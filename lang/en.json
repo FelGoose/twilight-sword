@@ -80,9 +80,9 @@
           "str": {
             "label": "Strength",
             "value": {
-              "label": "Strength"
-              }
-            },
+            "label": "Strength"
+            }
+          },
           "agl": {
             "label": "Agility",
             "value": {
@@ -126,6 +126,14 @@
             }
           }
         }
+      }
+    },
+    "Roll": {
+      "outcome": {
+          "success": "Success",
+          "failure": "Failure",
+          "criticalSuccess": "Critical Success",
+          "criticalFailure": "Critical Failure"
       }
     },
     "Sheets": {
