@@ -60,7 +60,6 @@ export default class TSActor extends foundry.documents.Actor {
 
     const outcomeLabel = game.i18n.localize(`TS.Roll.outcome.${rollOutcome}`);
     const abilityLabel = game.i18n.localize(`TS.Champion.FIELDS.abilities.${key}.label`);
-
     const advantageLabel = advantageMode ? game.i18n.localize(`TS.Roll.${advantageMode}`) : null;
 
     const htmlData = {
