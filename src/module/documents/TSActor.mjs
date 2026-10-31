@@ -19,7 +19,7 @@ export default class TSActor extends foundry.documents.Actor {
 
   /**
    * Determines if you have advantage, disadvantage, or modifiers.
-   * advantage and disadvantage cancel each other out.
+   * Advantage and disadvantage cancel each other out.
    * Applies options as needed and rolls the dice.
    * Determines if you succeed, fail, critical succeed, or critical fail.
    * Posts chat message based on roll.

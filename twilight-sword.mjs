@@ -22,6 +22,9 @@ Hooks.once("init", () => {
   foundry.documents.collections.Actors.registerSheet(systemID, apps.Actor.TSActorSheet, {
     makeDefault: true, label: "TS.Sheets.Labels.ActorSheet",
   });
+  foundry.documents.collections.Actors.registerSheet(systemID, apps.Actor.TSChampionSheet, {
+    makeDefault: true, label: "TS.Sheets.Labels.ChampionSheet", types: ["champion"],
+  });
   foundry.documents.collections.Items.registerSheet(systemID, apps.Item.TSItemSheet, {
     makeDefault: true, label: "TS.Sheets.Labels.ItemSheet",
   });

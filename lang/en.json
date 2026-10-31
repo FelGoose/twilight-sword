@@ -111,8 +111,9 @@
     },
     "Sheets": {
       "Labels": {
-        "ActorSheet": "Default Twilight Sword Actor Sheet",
-        "ItemSheet": "Default Twilight Sword Item Sheet"
+        "ActorSheet": "Default Actor Sheet",
+        "ItemSheet": "Twilight Sword Item Sheet",
+        "ChampionSheet": "Twilight Sword Champion Sheet"
       },
       "Tabs": {
         "properties": "Properties",
