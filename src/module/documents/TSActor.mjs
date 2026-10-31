@@ -19,6 +19,7 @@ export default class TSActor extends foundry.documents.Actor {
 
   /**
    * Determines if you have advantage, disadvantage, or modifiers.
+   * advantage and disadvantage cancel each other out.
    * Applies options as needed and rolls the dice.
    * Determines if you succeed, fail, critical succeed, or critical fail.
    * Posts chat message based on roll.
@@ -30,14 +31,15 @@ export default class TSActor extends foundry.documents.Actor {
    * @returns {Promise<object>} The whole roll, die rolled, target number, outcome of roll.
    */
   async rollAbility(key, { advantage = false, disadvantage = false, modifier = 0 } = {}) {
-    let formula;
+    let advantageMode = null;
     if (advantage && !disadvantage) {
-      formula = "2d12kl";
+      advantageMode = "advantage";
     } else if (disadvantage && !advantage) {
-      formula = "2d12kh";
-    } else {
-      formula = "1d12";
+      advantageMode = "disadvantage";
     }
+
+    const formulas = { advantage: "2d12kl", disadvantage: "2d12kh" };
+    const formula = formulas[advantageMode] ?? "1d12";
 
     const clampedModifier = Math.min(Math.max(modifier, -3), 3);
     const roll = await new Roll(formula).evaluate();
@@ -59,9 +61,7 @@ export default class TSActor extends foundry.documents.Actor {
     const outcomeLabel = game.i18n.localize(`TS.Roll.outcome.${rollOutcome}`);
     const abilityLabel = game.i18n.localize(`TS.Champion.FIELDS.abilities.${key}.label`);
 
-    let advantageLabel = null;
-    if (formula === "2d12kl") advantageLabel = game.i18n.localize("TS.Roll.advantage");
-    else if (formula === "2d12kh") advantageLabel = game.i18n.localize("TS.Roll.disadvantage");
+    const advantageLabel = advantageMode ? game.i18n.localize(`TS.Roll.${advantageMode}`) : null;
 
     const htmlData = {
       rollOutcome,
