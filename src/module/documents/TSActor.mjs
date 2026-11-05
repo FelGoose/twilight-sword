@@ -18,6 +18,7 @@ export default class TSActor extends foundry.documents.Actor {
   /* -------------------------------------------------- */
 
   /**
+   * rules for rollModes and abilityRoll defined in config.mjs
    * Determines if you have advantage, disadvantage, or modifiers.
    * Advantage and disadvantage cancel each other out.
    * Applies options as needed and rolls the dice.
@@ -31,26 +32,25 @@ export default class TSActor extends foundry.documents.Actor {
    * @returns {Promise<object>} The whole roll, die rolled, target number, outcome of roll.
    */
   async rollAbility(key, { advantage = false, disadvantage = false, modifier = 0 } = {}) {
-    let advantageMode = null;
+    const { abilityRoll, rollModes, rollOutcomes } = CONFIG.TS;
+
+    let advantageMode = "normal";
     if (advantage && !disadvantage) {
       advantageMode = "advantage";
     } else if (disadvantage && !advantage) {
       advantageMode = "disadvantage";
     }
 
-    const formulas = { advantage: "2d12kl", disadvantage: "2d12kh" };
-    const formula = formulas[advantageMode] ?? "1d12";
-
-    const clampedModifier = Math.clamp(modifier, -3, 3);
-    const roll = await new Roll(formula).evaluate();
+    const clampedModifier = Math.clamp(modifier, -abilityRoll.maxModifier, abilityRoll.maxModifier);
+    const roll = await new Roll(rollModes[advantageMode].formula).evaluate();
     const die = roll.total;
     const abilityValue = this.system.abilities[key].value;
     const target = abilityValue + clampedModifier;
-    let rollOutcome;
 
-    if (die === 1) {
+    let rollOutcome;
+    if (die === abilityRoll.criticalSuccess) {
       rollOutcome = "criticalSuccess";
-    } else if (die === 12) {
+    } else if (die === abilityRoll.criticalFailure) {
       rollOutcome = "criticalFailure";
     } else if (die <= target) {
       rollOutcome = "success";
@@ -60,7 +60,8 @@ export default class TSActor extends foundry.documents.Actor {
 
     const outcomeLabel = game.i18n.localize(`TS.Roll.outcome.${rollOutcome}`);
     const abilityLabel = game.i18n.localize(`TS.Champion.FIELDS.abilities.${key}.label`);
-    const advantageLabel = advantageMode ? game.i18n.localize(`TS.Roll.${advantageMode}`) : null;
+    const advantageLabel = rollModes[advantageMode].label ?? null;
+
 
     const htmlData = {
       rollOutcome,
@@ -69,7 +70,6 @@ export default class TSActor extends foundry.documents.Actor {
       outcomeLabel,
       advantageLabel,
       die,
-      target,
       abilityValue,
       modifier: clampedModifier ? clampedModifier.signedString() : null,
       isCritical: rollOutcome.startsWith("critical"),
