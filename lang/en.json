@@ -98,8 +98,10 @@
       }
     },
     "Roll": {
+      "title": "Roll Options",
       "rolled": "Rolled",
       "target": "Target",
+      "modifier": "Modifier",
       "advantage": "Advantage",
       "disadvantage": "Disadvantage",
       "outcome": {

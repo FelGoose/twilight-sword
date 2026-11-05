@@ -18,7 +18,7 @@ export default class TSActor extends foundry.documents.Actor {
   /* -------------------------------------------------- */
 
   /**
-   * rules for rollModes and abilityRoll defined in config.mjs
+   * Rules for rollModes and abilityRoll defined in config.mjs
    * Determines if you have advantage, disadvantage, or modifiers.
    * Advantage and disadvantage cancel each other out.
    * Applies options as needed and rolls the dice.
@@ -32,7 +32,7 @@ export default class TSActor extends foundry.documents.Actor {
    * @returns {Promise<object>} The whole roll, die rolled, target number, outcome of roll.
    */
   async rollAbility(key, { advantage = false, disadvantage = false, modifier = 0 } = {}) {
-    const { abilityRoll, rollModes, rollOutcomes } = CONFIG.TS;
+    const { abilityRoll, rollModes } = CONFIG.TS;
 
     let advantageMode = "normal";
     if (advantage && !disadvantage) {
@@ -62,10 +62,10 @@ export default class TSActor extends foundry.documents.Actor {
     const abilityLabel = game.i18n.localize(`TS.Champion.FIELDS.abilities.${key}.label`);
     const advantageLabel = rollModes[advantageMode].label ?? null;
 
-
     const htmlData = {
       rollOutcome,
       name: this.name,
+      target,
       abilityLabel,
       outcomeLabel,
       advantageLabel,

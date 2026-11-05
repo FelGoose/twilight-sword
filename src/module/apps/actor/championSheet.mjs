@@ -24,4 +24,29 @@ export class TSChampionSheet extends TSActorSheet {
     }
     return parentPart;
   }
+
+  static DEFAULT_OPTIONS = {
+    actions: { rollAbility: this.#rollAbility },
+  };
+
+  /** Opens a dialog so that the player can choose modifier or advantage/disadvantage. Rolls the ability.
+   * @this TSChampionSheet
+   * @param {PointerEvent} event   The click event.
+   * @param {HTMLElement} target   The button that was clicked [data-action].
+   * @protected
+   */
+  static async #rollAbility(event, target) {
+    const key = target.dataset.ability;
+    const html = await foundry.applications.handlebars.renderTemplate(
+      systemPath("templates/dialogs/roll-dialog.hbs"),
+      {},
+    );
+    const result = await foundry.applications.api.DialogV2.input({
+      window: { title: game.i18n.localize("TS.Roll.title") },
+      content: html,
+    });
+
+    if (!result) return;
+    await this.actor.rollAbility(key, result);
+  }
 }
