@@ -1,4 +1,53 @@
 <section class="standard-form tab scrollable {{tab.cssClass}}" data-group="primary" data-tab="properties">
+  <fieldset>
+    <legend>{{localize "TS.Champion.FIELDS.hearts.label"}}</legend>
+    <label>
+      {{localize "TS.Champion.FIELDS.hearts.value.label"}}
+      <input type="number" name="system.hearts.value" value="{{system.hearts.value}}" step="1">
+      / {{system.hearts.max}}
+    </label>
+    <label>
+      {{localize "TS.Champion.FIELDS.hearts.temp.label"}}
+      <input type="number" name="system.hearts.temp" value="{{system.hearts.temp}}" step="1">
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>{{localize "TS.Champion.FIELDS.stamina.label"}}</legend>
+    <label>
+      {{localize "TS.Champion.FIELDS.stamina.value.label"}}
+      <input type="number" name="system.stamina.value" value="{{system.stamina.value}}" min="0" max="{{system.stamina.max}}" step="1">
+      / {{system.stamina.max}}
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <label>
+      {{localize "TS.Champion.FIELDS.armor.label"}}
+      <input type="number" name="system.armor" value="{{system.armor}}" min="0" max="3" step="1">
+    </label>
+    <label>
+      {{localize "TS.Champion.FIELDS.boon.label"}}
+      <input type="checkbox" name="system.boon" {{checked system.boon}}>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>{{localize "TS.Champion.FIELDS.zin.label"}}</legend>
+    <label>
+      {{localize "TS.Champion.FIELDS.zin.green.label"}}
+      <input type="number" name="system.zin.green" value="{{system.zin.green}}" min="0" step="1">
+    </label>
+    <label>
+      {{localize "TS.Champion.FIELDS.zin.blue.label"}}
+      <input type="number" name="system.zin.blue" value="{{system.zin.blue}}" min="0" step="1">
+    </label>
+    <label>
+      {{localize "TS.Champion.FIELDS.zin.red.label"}}
+      <input type="number" name="system.zin.red" value="{{system.zin.red}}" min="0" step="1">
+    </label>
+  </fieldset>
+
   <ul>
     {{#each abilities}}
     <li>
