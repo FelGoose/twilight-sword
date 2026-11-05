@@ -41,7 +41,7 @@ export default class TSActor extends foundry.documents.Actor {
     const formulas = { advantage: "2d12kl", disadvantage: "2d12kh" };
     const formula = formulas[advantageMode] ?? "1d12";
 
-    const clampedModifier = Math.min(Math.max(modifier, -3), 3);
+    const clampedModifier = Math.clamp(modifier, -3, 3);
     const roll = await new Roll(formula).evaluate();
     const die = roll.total;
     const abilityValue = this.system.abilities[key].value;
