@@ -2,9 +2,18 @@
   <ul>
     {{#each abilities}}
     <li>
-      {{label}}: {{value}} <button type="button" data-action="rollAbility" data-ability="{{key}}"></button>
+      <label>
+        {{label}}:
+        {{#if @root.editable}}
+        <input type="number" name="system.abilities.{{key}}.value" value="{{value}}" min="5" max="10" step="1">
+        {{else}}
+        {{value}}
+        {{/if}}
+      </label>
+      <button type="button" data-action="rollAbility" data-ability="{{key}}">
+        <i class="fa-solid fa-dice-d20"></i>
+      </button>
     </li>
-
     {{/each}}
   </ul>
 </section>
