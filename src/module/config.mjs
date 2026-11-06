@@ -28,11 +28,6 @@ TS.abilityRoll = {
   criticalFailure: 12,
 };
 
-TS.inventory = {
-  slotsPerStrength: 2,
-  maxEquipped: 3,
-};
-
 TS.rollModes = {
   normal: { formula: "1d12" },
   advantage: { formula: "2d12kl", label: "TS.Roll.advantage" },
@@ -54,6 +49,20 @@ TS.conditions = {
   silence: { label: "TS.Condition.silence", icon: "fa-solid fa-volume-xmark" },
   burn: { label: "TS.Condition.burn", icon: "fa-solid fa-fire" },
   ko: { label: "TS.Condition.ko", icon: "fa-solid fa-heart-crack" },
+};
+
+/* --------------------------------------------- */
+/* INVENTORY AND ITEMS.                          */
+/* --------------------------------------------- */
+
+TS.inventory = {
+  slotsPerStrength: 2,
+  maxEquipped: 3,
+};
+
+TS.defaultIcons = {
+  item: "icons/svg/item-bag.svg",
+  ingredient: "icons/svg/pill.svg",
 };
 
 export default TS;

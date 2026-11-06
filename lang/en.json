@@ -120,6 +120,10 @@
       "addIngredient": "Add ingredient"
     },
     "Item": {
+      "defaultName": {
+        "item": "Item",
+        "ingredient": "Ingredient"
+      },
       "FIELDS": {
         "description": { "label": "Description" },
         "slots": { "label": "Slots" },
