@@ -1,0 +1,62 @@
+.application.sheet.twilight-sword.champion {
+  --ts-panel-bg: #F1F2F6;
+  --ts-muted-bg: #E6E8EE;
+  --ts-light: #FBFBFD;
+
+  --ts-panel-border: #B98F5B;
+  --ts-outline: #A47B4B;
+  --ts-divider: #C9A777;
+
+  --ts-text: #4A3320;
+  --ts-input-text: #3A2A1B;
+  --ts-label: #6E4B2A;
+
+  --ts-accent: #0B6E75;
+  --ts-danger: #A33A2B;
+  --ts-zin-green: #4E9A57;
+  --ts-zin-blue: #3A86B8;
+  --ts-zin-red: #C0504D;
+
+  --ts-font-body: "Source Sans 3", system-ui, sans-serif;
+  --ts-font-heading: "Cinzel", serif;
+
+  font-family: var(--ts-font-body);
+
+  input,
+  button {
+    font-family: inherit;
+  }
+
+  nav.tabs {
+    font-family: var(--ts-font-heading);
+  }
+
+  .champion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .ts-panel {
+    box-sizing: border-box;
+    border: 3px solid var(--ts-panel-border);
+    border-radius: 4px;
+    background: var(--ts-panel-bg);
+    color: var(--ts-text);
+    padding: 22px 24px;
+
+    h2 {
+      margin: 0 0 14px;
+      text-align: center;
+      font-size: 26px;
+      color: var(--ts-accent);
+      font-family: var(--ts-font-heading);
+    }
+  }
+
+  .panel-equipment,
+  .panel-inventory,
+  .panel-feats {
+    grid-column: 1 / -1;
+  }
+}

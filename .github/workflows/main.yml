@@ -46,7 +46,7 @@ jobs:
 
       # Create zip file.
       - name: Create ZIP archive
-        run: zip -r ./system.zip system.json twilight-sword.mjs twilight-sword.css assets/ fonts/ lang/ templates/
+        run: zip -r ./system.zip system.json twilight-sword.mjs css/ assets/ fonts/ lang/ templates/
 
       # Create a release for this specific version.
       - name: Update Release with Files

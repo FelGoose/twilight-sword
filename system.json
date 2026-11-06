@@ -19,7 +19,15 @@
     "verified": "14"
   },
   "esmodules": ["twilight-sword.mjs"],
-  "styles": ["twilight-sword.css"],
+  "styles": [
+    "css/fonts.css",
+    "css/sheets.css",
+    "css/champion/base.css",
+    "css/champion/stats.css",
+    "css/champion/identity.css",
+    "css/champion/inventory.css",
+    "css/chat.css"
+  ],
   "languages": [
     {
       "lang": "en",
@@ -54,7 +62,7 @@
   "flags": {
     "hotReload": {
       "extensions": ["css", "html", "hbs", "json"],
-      "paths": ["twilight-sword.css", "templates", "lang"]
+      "paths": ["css", "templates", "lang"]
     }
   }
 }
