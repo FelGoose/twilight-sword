@@ -57,21 +57,11 @@
   }
 
   .zin-shape-box {
-    display: grid;
-    place-items: center;
     width: 62px;
     height: 62px;
 
-    & > * {
-      grid-area: 1 / 1;
-    }
-
     input {
       width: 40px;
-      height: auto;
-      border: 0;
-      background: transparent;
-      box-shadow: none;
       text-align: center;
       font-family: var(--ts-font-heading);
       font-size: 22px;
@@ -126,11 +116,7 @@
   .item-control,
   .add-item {
     width: auto;
-    height: auto;
     padding: 4px 8px;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
     color: var(--ts-outline);
     cursor: pointer;
 

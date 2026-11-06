@@ -22,6 +22,18 @@
 
   font-family: var(--ts-font-body);
 
+  .stat-current,
+  .ability-label,
+  .field input,
+  .zin-shape-box input,
+  .item-control,
+  .add-item {
+    height: auto;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
   input,
   button {
     font-family: inherit;
@@ -51,6 +63,36 @@
       font-size: 26px;
       color: var(--ts-accent);
       font-family: var(--ts-font-heading);
+    }
+  }
+
+  .stat-max-label,
+  .field-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .field-label {
+    color: var(--ts-label);
+  }
+
+  .boon-toggle input,
+  .condition input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .shape-box,
+  .zin-shape-box {
+    display: grid;
+    place-items: center;
+
+    & > * {
+      grid-area: 1 / 1;
     }
   }
 
