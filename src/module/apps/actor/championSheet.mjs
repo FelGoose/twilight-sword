@@ -65,8 +65,14 @@ export class TSChampionSheet extends TSActorSheet {
         .map((item) => ({
           id: item.id,
           img: item.img,
-          label: item.system.quantity > 1 ? `${item.name} (${item.system.quantity})` : item.name,
+          label: item.nameWithQuantity,
           slotsUsed: item.system.slotsUsed,
+        }));
+      context.ingredients = this.actor.items
+        .filter((item) => item.type === "ingredient")
+        .map((item) => ({
+          id: item.id,
+          label: item.nameWithQuantity,
         }));
       context.zin = Object.keys(this.actor.system.zin).map((key) => ({
         key: key,

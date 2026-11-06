@@ -115,7 +115,9 @@
       "encumbered": "Encumbered",
       "equip": "Equip or unequip",
       "equippedFull": "You can only have 3 items equipped.",
-      "addItem": "Add item"
+      "addItem": "Add item",
+      "ingredients": "Ingredients and Components",
+      "addIngredient": "Add ingredient"
     },
     "Item": {
       "FIELDS": {
@@ -123,6 +125,12 @@
         "slots": { "label": "Slots" },
         "quantity": { "label": "Quantity" },
         "equipped": { "label": "Equipped" }
+      }
+    },
+    "Ingredient": {
+      "FIELDS": {
+        "description": { "label": "Description" },
+        "quantity": { "label": "Quantity" }
       }
     },
     "Roll": {

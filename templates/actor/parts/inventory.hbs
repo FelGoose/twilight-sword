@@ -72,4 +72,29 @@
     {{localize "TS.Inventory.addItem"}}
   </button>
   {{/if}}
+  <div class="ingredients">
+    <span class="field-label">{{localize "TS.Inventory.ingredients"}}</span>
+    <ul class="item-list ingredient-list">
+      {{#each ingredients}}
+      <li class="item draggable" data-item-id="{{id}}" data-document-class="Item">
+        <span class="item-name">{{label}}</span>
+        {{#if @root.editable}}
+        <button type="button" class="item-control" data-action="viewDoc">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+        <button type="button" class="item-control" data-action="deleteDoc">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+
+    {{#if editable}}
+    <button type="button" class="add-item" data-action="createDoc" data-document-class="Item" data-type="ingredient">
+      <i class="fa-solid fa-plus"></i>
+      {{localize "TS.Inventory.addIngredient"}}
+    </button>
+    {{/if}}
+  </div>
 </section>

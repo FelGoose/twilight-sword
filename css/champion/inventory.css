@@ -88,6 +88,15 @@
     list-style: none;
   }
 
+  .ingredients {
+    margin-top: 22px;
+  }
+
+  .ingredient-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 4px;
+  }
+
   .item {
     display: flex;
     align-items: center;

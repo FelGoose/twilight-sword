@@ -12,4 +12,15 @@ export default class TSItem extends foundry.documents.Item {
      */
     Hooks.callAll("TS.prepareItemData", this);
   }
+
+  /* -------------------------------------------------- */
+
+  /**
+   * The item's name, followed by its (quantity).
+   * @type {string}
+   */
+  get nameWithQuantity() {
+    const quantity = this.system.quantity;
+    return quantity > 1 ? `${this.name} (${quantity})` : this.name;
+  }
 }
