@@ -13,6 +13,7 @@ export class TSChampionSheet extends TSActorSheet {
     },
     actions: {
       rollAbility: this.#rollAbility,
+      toggleEquipped: this.#toggleEquipped,
     },
   };
 
@@ -59,6 +60,19 @@ export class TSChampionSheet extends TSActorSheet {
         icon: condition.icon,
         active: this.actor.system.conditions[key],
       }));
+      context.carried = this.actor.items
+        .filter((item) => (item.type === "item") && !item.system.equipped)
+        .map((item) => ({
+          id: item.id,
+          img: item.img,
+          label: item.system.quantity > 1 ? `${item.name} (${item.system.quantity})` : item.name,
+          slotsUsed: item.system.slotsUsed,
+        }));
+      context.zin = Object.keys(this.actor.system.zin).map((key) => ({
+        key: key,
+        value: this.actor.system.zin[key],
+        label: game.i18n.localize(`TS.Champion.FIELDS.zin.${key}.label`),
+      }));
     }
     return context;
   }
@@ -88,5 +102,26 @@ export class TSChampionSheet extends TSActorSheet {
 
     if (!result) return;
     await this.actor.rollAbility(key, result);
+  }
+
+  /**
+   * Equips or unequips an item, up to the maximum number of equipped items.
+   *
+   * @this TSChampionSheet
+   * @param {PointerEvent} event   The originating click event.
+   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
+   * @protected
+   */
+  static async #toggleEquipped(event, target) {
+    const item = this._getEmbeddedDocument(target);
+    const equipping = !item.system.equipped;
+    if (equipping) {
+      const equippedCount = this.actor.items.filter((other) => other.system.equipped).length;
+      if (equippedCount >= CONFIG.TS.inventory.maxEquipped) {
+        ui.notifications.warn(game.i18n.localize("TS.Inventory.equippedFull"));
+        return;
+      }
+    }
+    await item.update({ "system.equipped": equipping });
   }
 }

@@ -89,6 +89,13 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
   prepareDerivedData() {
     this.hearts.max = Math.min(10 + this.abilities.vit.value + this.hearts.bonus, 35);
     this.stamina.max = Math.min(3 + this.stamina.bonus, 8);
+
+    const carried = this.parent.items.filter((item) => (item.type === "item") && !item.system.equipped);
+    this.slots = {
+      used: carried.reduce((total, item) => total + item.system.slotsUsed, 0),
+      max: this.abilities.str.value * TS.inventory.slotsPerStrength,
+    };
+    this.encumbered = this.slots.used > this.slots.max;
   }
 
 }

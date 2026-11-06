@@ -28,6 +28,11 @@ TS.abilityRoll = {
   criticalFailure: 12,
 };
 
+TS.inventory = {
+  slotsPerStrength: 2,
+  maxEquipped: 3,
+};
+
 TS.rollModes = {
   normal: { formula: "1d12" },
   advantage: { formula: "2d12kl", label: "TS.Roll.advantage" },

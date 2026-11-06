@@ -1,3 +1,75 @@
 <section class="ts-panel panel-inventory">
   <h2>{{localize "TS.Champion.Panels.inventory"}}</h2>
+
+  <div class="inventory-header">
+    <div class="slot-group">
+      <div class="stat-group">
+        <div class="shape-box large{{#if system.encumbered}} encumbered{{/if}}">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <rect x="4" y="4" width="92" height="92" rx="16"></rect>
+          </svg>
+          <div class="stat-max">
+            <span class="stat-max-label">{{localize "TS.Inventory.slotsUsed"}}</span>
+            <output class="stat-current">{{system.slots.used}}</output>
+          </div>
+        </div>
+        <div class="shape-box small">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <rect x="4" y="4" width="92" height="92" rx="16"></rect>
+          </svg>
+          <div class="stat-max">
+            <span class="stat-max-label">{{localize "TS.Champion.Stats.max"}}</span>
+            <span class="stat-max-value">{{system.slots.max}}</span>
+          </div>
+        </div>
+      </div>
+      {{#if system.encumbered}}
+      <span class="encumbered-badge">{{localize "TS.Inventory.encumbered"}}</span>
+      {{/if}}
+    </div>
+
+    <div class="zin-group">
+      <span class="zin-title">{{localize "TS.Champion.FIELDS.zin.label"}}</span>
+      {{#each zin}}
+      <div class="zin-coin zin-{{key}}" title="{{label}}">
+        <div class="zin-shape-box">
+          <svg class="zin-shape" viewBox="0 0 100 100" aria-hidden="true">
+            <polygon points="50,4 92,27 92,73 50,96 8,73 8,27"></polygon>
+          </svg>
+          <input type="number" name="system.zin.{{key}}" value="{{value}}" min="0" step="1"
+            aria-label="{{label}}">
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <ul class="item-list">
+    {{#each carried}}
+    <li class="item draggable" data-item-id="{{id}}" data-document-class="Item">
+      <img src="{{img}}" alt="{{label}}">
+      <span class="item-name">{{label}}</span>
+      <span class="item-slots" title="{{localize "TS.Item.FIELDS.slots.label"}}">{{slotsUsed}}</span>
+      {{#if @root.editable}}
+      <button type="button" class="item-control" data-action="toggleEquipped"
+        title="{{localize "TS.Inventory.equip"}}">
+        <i class="fa-solid fa-hand"></i>
+      </button>
+      <button type="button" class="item-control" data-action="viewDoc">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+      <button type="button" class="item-control" data-action="deleteDoc">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+
+  {{#if editable}}
+  <button type="button" class="add-item" data-action="createDoc" data-document-class="Item" data-type="item">
+    <i class="fa-solid fa-plus"></i>
+    {{localize "TS.Inventory.addItem"}}
+  </button>
+  {{/if}}
 </section>

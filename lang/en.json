@@ -110,6 +110,21 @@
         "name": "Name"
       }
     },
+    "Inventory": {
+      "slotsUsed": "Slots used",
+      "encumbered": "Encumbered",
+      "equip": "Equip or unequip",
+      "equippedFull": "You can only have 3 items equipped.",
+      "addItem": "Add item"
+    },
+    "Item": {
+      "FIELDS": {
+        "description": { "label": "Description" },
+        "slots": { "label": "Slots" },
+        "quantity": { "label": "Quantity" },
+        "equipped": { "label": "Equipped" }
+      }
+    },
     "Roll": {
       "title": "Roll Options",
       "rolled": "Rolled",
@@ -174,6 +189,9 @@
     },
     "Combatant": {
       "player": "Player"
+    },
+    "Item": {
+      "item": "Item"
     }
   }
 }
