@@ -18,7 +18,7 @@ export class TSChampionSheet extends TSActorSheet {
     if (partId === "properties") {
       parentPart.abilities = Object.entries(this.actor.system.abilities).map(([key, ability]) => ({
         key: key,
-        label: game.i18n.localize(`TS.Champion.FIELDS.abilities.${key}.label`),
+        label: CONFIG.TS.abilities[key].label,
         value: ability.value,
       }));
       parentPart.conditions = Object.entries(CONFIG.TS.conditions).map(([key, condition]) => ({
