@@ -46,6 +46,9 @@
     },
     "Combatant": {
       "player": {}
+    },
+    "Item": {
+      "item": {}
     }
   },
   "flags": {
