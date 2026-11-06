@@ -1,3 +1,4 @@
+import TS from "../../config.mjs";
 /**
  * Data model for Twilight Sword champions.
  */
@@ -45,6 +46,11 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
         initial: 0,
       }),
       boon: new foundry.data.fields.BooleanField(),
+      conditions: new foundry.data.fields.SchemaField(
+        Object.fromEntries(
+          Object.keys(TS.conditions).map((key) => [key, new foundry.data.fields.BooleanField()]),
+        ),
+      ),
       zin: new foundry.data.fields.SchemaField({
         green: new foundry.data.fields.NumberField({
           integer: true,

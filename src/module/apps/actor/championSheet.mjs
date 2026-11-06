@@ -21,11 +21,21 @@ export class TSChampionSheet extends TSActorSheet {
         label: game.i18n.localize(`TS.Champion.FIELDS.abilities.${key}.label`),
         value: ability.value,
       }));
+      parentPart.conditions = Object.entries(CONFIG.TS.conditions).map(([key, condition]) => ({
+        key: key,
+        label: condition.label,
+        icon: condition.icon,
+        active: this.actor.system.conditions[key],
+      }));
     }
     return parentPart;
   }
 
   static DEFAULT_OPTIONS = {
+    position: {
+      height: 1000,
+      width: 1000,
+    },
     actions: { rollAbility: this.#rollAbility },
   };
 

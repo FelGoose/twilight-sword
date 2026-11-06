@@ -1,9 +1,9 @@
 import * as apps from "./src/module/apps/_module.mjs";
 import * as dataModels from "./src/module/data/_module.mjs";
 import * as documents from "./src/module/documents/_module.mjs";
+import { systemID, systemPath } from "./src/module/constants.mjs";
 import TS from "./src/module/config.mjs";
 import { localizeHelper } from "./src/module/helpers/utils.mjs";
-import { systemID } from "./src/module/constants.mjs";
 
 Hooks.once("init", () => {
   CONFIG.TS = TS;
@@ -17,6 +17,13 @@ Hooks.once("init", () => {
   Object.assign(CONFIG.Combatant.dataModels, dataModels.Combatant.config);
 
   CONFIG.Actor.defaultType = "champion";
+  foundry.applications.handlebars.loadTemplates([
+    systemPath("templates/actor/parts/identity.hbs"),
+    systemPath("templates/actor/parts/stats.hbs"),
+    systemPath("templates/actor/parts/equipment.hbs"),
+    systemPath("templates/actor/parts/inventory.hbs"),
+    systemPath("templates/actor/parts/feats.hbs"),
+  ]);
 
   // Document Sheets
   foundry.documents.collections.Actors.registerSheet(systemID, apps.Actor.TSActorSheet, {

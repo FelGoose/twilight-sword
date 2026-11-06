@@ -49,7 +49,7 @@
           "str": {
             "label": "Strength",
             "value": {
-            "label": "Strength"
+              "label": "Strength"
             }
           },
           "agl": {
@@ -95,11 +95,19 @@
             }
           }
         }
+      },
+      "Panels": {
+        "identity": "Identity",
+        "stats": "Stats",
+        "equipment": "Equipment",
+        "inventory": "Inventory",
+        "feats": "Feats and Spells"
       }
     },
     "Roll": {
       "title": "Roll Options",
       "rolled": "Rolled",
+      "rollAbility": "Roll {ability}",
       "target": "Target",
       "modifier": "Modifier",
       "advantage": "Advantage",
@@ -110,6 +118,18 @@
           "criticalSuccess": "Critical Success",
           "criticalFailure": "Critical Failure"
       }
+    },
+    "Condition": {
+      "poison": "Poison",
+      "stun": "Stun",
+      "confusion": "Confusion",
+      "wound": "Wound",
+      "fear": "Fear",
+      "freeze": "Freeze",
+      "blind": "Blind",
+      "silence": "Silence",
+      "burn": "Burn",
+      "ko": "K.O."
     },
     "Sheets": {
       "Labels": {

@@ -1,0 +1,94 @@
+<section class="ts-panel panel-stats">
+  <div class="stat-row">
+    <div class="stat-group">
+      <div class="shape-box large">
+        <svg viewBox="0 0 100 90" aria-hidden="true">
+          <path d="M50 85 C10 55 2 30 20 14 C34 2 48 10 50 22 C52 10 66 2 80 14 C98 30 90 55 50 85Z"></path>
+        </svg>
+        <input class="stat-current" type="number" name="system.hearts.value" value="{{system.hearts.value}}" step="1"
+          aria-label="{{localize "TS.Champion.FIELDS.hearts.value.label"}}">
+      </div>
+      <div class="shape-box small">
+        <svg viewBox="0 0 100 90" aria-hidden="true">
+          <path d="M50 85 C10 55 2 30 20 14 C34 2 48 10 50 22 C52 10 66 2 80 14 C98 30 90 55 50 85Z"></path>
+        </svg>
+        <div class="stat-max">
+          <span class="stat-max-label">Max</span>
+          <span class="stat-max-value">{{system.hearts.max}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-group">
+      <div class="shape-box large">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="50,4 96,50 50,96 4,50"></polygon>
+        </svg>
+        <input class="stat-current" type="number" name="system.stamina.value" value="{{system.stamina.value}}" min="0"
+          max="{{system.stamina.max}}" step="1" aria-label="{{localize "TS.Champion.FIELDS.stamina.value.label"}}">
+      </div>
+      <div class="shape-box small">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="50,4 96,50 50,96 4,50"></polygon>
+        </svg>
+        <div class="stat-max">
+          <span class="stat-max-label">Max</span>
+          <span class="stat-max-value">{{system.stamina.max}}</span>
+        </div>
+      </div>
+    </div>
+
+    <label class="boon-toggle">
+      <input type="checkbox" name="system.boon" {{checked system.boon}}>
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 4 L38 24 L58 32 L38 40 L32 60 L26 40 L6 32 L26 24 Z"></path>
+      </svg>
+      <span>{{localize "TS.Champion.FIELDS.boon.label"}}</span>
+    </label>
+  </div>
+
+  <fieldset>
+    <legend>{{localize "TS.Champion.FIELDS.zin.label"}}</legend>
+    <label>
+      {{localize "TS.Champion.FIELDS.zin.green.label"}}
+      <input type="number" name="system.zin.green" value="{{system.zin.green}}" min="0" step="1">
+    </label>
+    <label>
+      {{localize "TS.Champion.FIELDS.zin.blue.label"}}
+      <input type="number" name="system.zin.blue" value="{{system.zin.blue}}" min="0" step="1">
+    </label>
+    <label>
+      {{localize "TS.Champion.FIELDS.zin.red.label"}}
+      <input type="number" name="system.zin.red" value="{{system.zin.red}}" min="0" step="1">
+    </label>
+  </fieldset>
+  <div class="stat-lower">
+    <div class="ability-list">
+      {{#each abilities}}
+      <div class="ability-row">
+        <button type="button" class="ability-label" data-action="rollAbility" data-ability="{{key}}"
+          title="{{localize "TS.Roll.rollAbility" ability=label}}">
+          {{label}}
+        </button>
+        {{#if @root.editable}}
+        <input class="ability-score" type="number" name="system.abilities.{{key}}.value" value="{{value}}" min="5"
+          max="10" step="1" aria-label="{{label}}">
+        {{else}}
+        <span class="ability-score">{{value}}</span>
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+    <div class="condition-grid">
+      {{#each conditions}}
+      <label class="condition">
+        <input type="checkbox" name="system.conditions.{{key}}" {{checked active}}>
+        <span class="condition-icon">
+          <i class="{{icon}}"></i>
+        </span>
+        <span class="condition-label">{{label}}</span>
+      </label>
+      {{/each}}
+    </div>
+  </div>
+</section>
