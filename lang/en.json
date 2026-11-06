@@ -102,6 +102,9 @@
         "equipment": "Equipment",
         "inventory": "Inventory",
         "feats": "Feats and Spells"
+      },
+      "Stats": {
+        "max": "Max"
       }
     },
     "Roll": {

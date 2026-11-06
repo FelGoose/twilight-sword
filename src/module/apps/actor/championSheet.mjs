@@ -5,44 +5,59 @@ import { systemPath } from "../../constants.mjs";
  * The Champion Sheet.
  */
 export class TSChampionSheet extends TSActorSheet {
-  static PARTS = { ...TSActorSheet.PARTS,
+  /** @inheritdoc */
+  static DEFAULT_OPTIONS = {
+    position: {
+      height: 1000,
+      width: 1000,
+    },
+    actions: {
+      rollAbility: this.#rollAbility,
+    },
+  };
+
+  /* -------------------------------------------------- */
+
+  /** @inheritdoc */
+  static PARTS = {
+    ...TSActorSheet.PARTS,
     properties: {
       template: systemPath("templates/actor/champion-sheet.hbs"),
       scrollable: [""],
     },
   };
 
+  /* -------------------------------------------------- */
+
   /** @inheritdoc */
   async _preparePartContext(partId, context) {
-    const parentPart = await super._preparePartContext(partId, context);
+    context = await super._preparePartContext(partId, context);
     if (partId === "properties") {
-      parentPart.abilities = Object.entries(this.actor.system.abilities).map(([key, ability]) => ({
+      context.abilities = Object.entries(this.actor.system.abilities).map(([key, ability]) => ({
         key: key,
         label: CONFIG.TS.abilities[key].label,
         value: ability.value,
       }));
-      parentPart.conditions = Object.entries(CONFIG.TS.conditions).map(([key, condition]) => ({
+      context.conditions = Object.entries(CONFIG.TS.conditions).map(([key, condition]) => ({
         key: key,
         label: condition.label,
         icon: condition.icon,
         active: this.actor.system.conditions[key],
       }));
     }
-    return parentPart;
+    return context;
   }
 
-  static DEFAULT_OPTIONS = {
-    position: {
-      height: 1000,
-      width: 1000,
-    },
-    actions: { rollAbility: this.#rollAbility },
-  };
+  /* -------------------------------------------------- */
+  /*   Event handlers                                   */
+  /* -------------------------------------------------- */
 
-  /** Opens a dialog so that the player can choose modifier or advantage/disadvantage. Rolls the ability.
+  /**
+   * Opens a dialog where the player chooses a modifier or advantage and disadvantage, then rolls the ability.
+   *
    * @this TSChampionSheet
-   * @param {PointerEvent} event   The click event.
-   * @param {HTMLElement} target   The button that was clicked [data-action].
+   * @param {PointerEvent} event   The originating click event.
+   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
    * @protected
    */
   static async #rollAbility(event, target) {

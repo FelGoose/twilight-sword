@@ -1,3 +1,4 @@
+import { getAdvantageMode, getRollOutcome } from "../helpers/rolls.mjs";
 import { systemPath } from "../constants.mjs";
 
 /**
@@ -18,75 +19,62 @@ export default class TSActor extends foundry.documents.Actor {
   /* -------------------------------------------------- */
 
   /**
-   * Rules for rollModes and abilityRoll defined in config.mjs
-   * Determines if you have advantage, disadvantage, or modifiers.
-   * Advantage and disadvantage cancel each other out.
-   * Applies options as needed and rolls the dice.
-   * Determines if you succeed, fail, critical succeed, or critical fail.
-   * Posts chat message based on roll.
-   * @param {string} key  Name of the ability used.
-   * @param {object} options   Options for the roll.
-   * @param {boolean} [options.advantage]  Determine if roll has advantage.
-   * @param {boolean} [options.disadvantage]   Determine if roll has disadvantage.
-   * @param {number} [options.modifier]   Determine if roll has modifier.
-   * @returns {Promise<object>} The whole roll, die rolled, target number, outcome of roll.
+   * Rolls an ability check and posts the result to chat. The rules for roll modes and critical values are
+   * defined in `config.mjs`.
+   *
+   * @param {string} key                       The key of the ability, such as "str".
+   * @param {object} [options]                 Options for the roll.
+   * @param {boolean} [options.advantage]      Whether the roll has advantage.
+   * @param {boolean} [options.disadvantage]   Whether the roll has disadvantage.
+   * @param {number} [options.modifier]        A modifier to the target number, limited to the maximum in config.
+   * @returns {Promise<object>} The evaluated roll, the die rolled, the target number and the outcome key.
    */
   async rollAbility(key, { advantage = false, disadvantage = false, modifier = 0 } = {}) {
     const { abilityRoll, rollModes } = CONFIG.TS;
 
-    let advantageMode = "normal";
-    if (advantage && !disadvantage) {
-      advantageMode = "advantage";
-    } else if (disadvantage && !advantage) {
-      advantageMode = "disadvantage";
-    }
-
+    const advantageMode = getAdvantageMode({ advantage, disadvantage });
     const clampedModifier = Math.clamp(modifier, -abilityRoll.maxModifier, abilityRoll.maxModifier);
-    const roll = await new Roll(rollModes[advantageMode].formula).evaluate();
-    const die = roll.total;
     const abilityValue = this.system.abilities[key].value;
     const target = abilityValue + clampedModifier;
 
-    let rollOutcome;
-    if (die === abilityRoll.criticalSuccess) {
-      rollOutcome = "criticalSuccess";
-    } else if (die === abilityRoll.criticalFailure) {
-      rollOutcome = "criticalFailure";
-    } else if (die <= target) {
-      rollOutcome = "success";
-    } else {
-      rollOutcome = "failure";
-    }
+    const roll = await new Roll(rollModes[advantageMode].formula).evaluate();
+    const die = roll.total;
+    const rollOutcome = getRollOutcome(die, target, abilityRoll);
 
-    const outcomeLabel = game.i18n.localize(`TS.Roll.outcome.${rollOutcome}`);
-    const abilityLabel = CONFIG.TS.abilities[key].label;
-    const advantageLabel = rollModes[advantageMode].label ?? null;
-
-    const htmlData = {
+    await this.#postAbilityRoll(roll, {
       rollOutcome,
       name: this.name,
       target,
-      abilityLabel,
-      outcomeLabel,
-      advantageLabel,
+      abilityLabel: CONFIG.TS.abilities[key].label,
+      outcomeLabel: game.i18n.localize(`TS.Roll.outcome.${rollOutcome}`),
+      advantageLabel: rollModes[advantageMode].label ?? null,
       die,
       abilityValue,
       modifier: clampedModifier ? clampedModifier.signedString() : null,
       isCritical: rollOutcome.startsWith("critical"),
-      // Custom content suppresses Foundry's default dice display, so embed it ourselves.
-      rollHTML: await roll.render(),
-    };
-    const html = await foundry.applications.handlebars.renderTemplate(
-      systemPath("templates/chat/ability-roll.hbs"),
-      htmlData,
-    );
-
-    const messageData = {
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      content: html,
-    };
-    await roll.toMessage(messageData);
+    });
 
     return { roll, die, target, rollOutcome };
+  }
+
+  /* -------------------------------------------------- */
+
+  /**
+   * Renders the ability roll chat template and posts it as a chat message from this actor.
+   *
+   * @param {Roll} roll        The evaluated roll, shown inside the message.
+   * @param {object} data      The data for the chat template.
+   * @returns {Promise<ChatMessage>} The created chat message.
+   */
+  async #postAbilityRoll(roll, data) {
+    // Custom content suppresses Foundry's default dice display, so embed it ourselves.
+    const content = await foundry.applications.handlebars.renderTemplate(
+      systemPath("templates/chat/ability-roll.hbs"),
+      { ...data, rollHTML: await roll.render() },
+    );
+    return roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      content,
+    });
   }
 }

@@ -13,13 +13,6 @@
   "readme": "README.md",
   "bugs": "https://github.com/FelGoose/twilight-sword/issues",
   "changelog": "CHANGELOG.md",
-  "media": [
-    {
-      "type": "setup",
-      "url": "",
-      "thumbnail": ""
-    }
-  ],
   "version": "AUTOMATIC",
   "compatibility": {
     "minimum": "13.351",
@@ -38,7 +31,6 @@
   "packFolders": [],
   "manifest": "https://github.com/FelGoose/twilight-sword/releases/latest/download/system.json",
   "download": "AUTOMATIC",
-  "background": "",
   "initiative": "1d12",
   "grid": {
     "type": 1,
