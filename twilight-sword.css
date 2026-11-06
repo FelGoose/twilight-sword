@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Cinzel";
+  src: url("fonts/Cinzel-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("fonts/SourceSans3-VariableFont_wght.ttf") format("truetype");
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+
 .application.sheet.twilight-sword {
   max-height: 90%;
 
@@ -108,6 +123,19 @@
     --ts-tan-dark: #A47B4B;
     --ts-teal: #0B6E75;
     --ts-text: #4A3320;
+    --ts-font-body: "Source Sans 3", system-ui, sans-serif;
+    --ts-font-heading: "Cinzel", serif;
+
+    font-family: var(--ts-font-body);
+
+    input,
+    button {
+      font-family: inherit;
+    }
+
+    nav.tabs {
+      font-family: var(--ts-font-heading);
+    }
 
     .champion-grid {
       display: grid;
@@ -128,6 +156,7 @@
         text-align: center;
         font-size: 26px;
         color: var(--ts-teal);
+        font-family: var(--ts-font-heading);
       }
     }
 
@@ -188,6 +217,7 @@
         background: transparent;
         box-shadow: none;
         text-align: center;
+        font-family: var(--ts-font-heading);
         font-size: 34px;
         font-weight: 700;
         color: var(--ts-teal);
@@ -209,6 +239,7 @@
     }
 
     .stat-max-value {
+      font-family: var(--ts-font-heading);
       font-size: 20px;
       font-weight: 700;
       color: var(--ts-teal);
@@ -220,7 +251,7 @@
       align-items: center;
       gap: 8px;
       cursor: pointer;
-      margin-top: 30px;
+      margin-top: 10px;
 
       input {
         position: absolute;
@@ -246,7 +277,7 @@
         color: var(--ts-teal);
       }
     }
-        .ability-list {
+    .ability-list {
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -266,10 +297,11 @@
       background: transparent;
       box-shadow: none;
       color: var(--ts-teal);
-      font-family: inherit;
+      font-family: var(--ts-font-heading);
       font-size: 17px;
       font-weight: 600;
       letter-spacing: 0.03em;
+      justify-content: flex-start;
       text-align: left;
       cursor: pointer;
 
@@ -303,7 +335,6 @@
       place-items: center;
     }
 
-  }
     .stat-lower {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -364,6 +395,70 @@
         outline-offset: 3px;
       }
     }
+    .portrait {
+      display: grid;
+      align-self: center;
+      place-items: center;
+      width: 240px;
+      height: 240px;
+      padding: 0;
+      overflow: hidden;
+      border: 2px dashed var(--ts-tan-dark);
+      border-radius: 6px;
+      background: #E6E8EE;
+      box-shadow: none;
+      cursor: pointer;
+      margin: 0 auto;
+
+      &[data-edit] {
+        cursor: pointer;
+      }
+
+      &:disabled {
+        cursor: default;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        border: none;
+        object-fit: cover;
+      }
+    }
+
+    .identity-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px 28px;
+      margin-top: 28px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      input {
+        height: auto;
+        padding: 4px 2px;
+        border: 0;
+        border-bottom: 1.5px solid var(--ts-tan-dark);
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        color: #3A2A1B;
+        font-size: 15px;
+      }
+    }
+
+    .field-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #6E4B2A;
+    }
+  }
 }
 
 .ability-roll {

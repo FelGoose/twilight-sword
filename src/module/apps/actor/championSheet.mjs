@@ -20,10 +20,25 @@ export class TSChampionSheet extends TSActorSheet {
 
   /** @inheritdoc */
   static PARTS = {
-    ...TSActorSheet.PARTS,
+    tabs: TSActorSheet.PARTS.tabs,
     properties: {
       template: systemPath("templates/actor/champion-sheet.hbs"),
       scrollable: [""],
+    },
+    effects: TSActorSheet.PARTS.effects,
+  };
+
+  /* -------------------------------------------------- */
+
+  /** @inheritdoc */
+  static TABS = {
+    primary: {
+      tabs: [
+        { id: "properties" },
+        { id: "effects" },
+      ],
+      initial: "properties",
+      labelPrefix: "TS.Sheets.Tabs",
     },
   };
 

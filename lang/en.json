@@ -105,6 +105,9 @@
       },
       "Stats": {
         "max": "Max"
+      },
+      "Identity": {
+        "name": "Name"
       }
     },
     "Roll": {
@@ -141,7 +144,7 @@
         "ChampionSheet": "Twilight Sword Champion Sheet"
       },
       "Tabs": {
-        "properties": "Properties",
+        "properties": "Sheet",
         "items": "Items",
         "effects": "Effects"
       }
