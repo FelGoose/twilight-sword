@@ -15,15 +15,6 @@ export function localizeHelper(object) {
   }
 }
 
-/**
- * Turns a config object such as `TS.ranges` into a `{ key: label }` object for a field's choices.
- * @param {Record<string, {label: string}>} config   A config object whose entries have a label.
- * @returns {Record<string, string>} The keys with their labels.
- */
-export function choicesFromConfig(config) {
-  return Object.fromEntries(Object.entries(config).map(([key, { label }]) => [key, label]));
-}
-
 /* -------------------------------------------------- */
 
 /**

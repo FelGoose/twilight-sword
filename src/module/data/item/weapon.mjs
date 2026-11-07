@@ -1,6 +1,5 @@
 import CarriedModel from "./carried.mjs";
 import TS from "../../config.mjs";
-import { choicesFromConfig } from "../../helpers/utils.mjs";
 
 /**
  * Data model for weapons and shields.
@@ -16,11 +15,11 @@ export default class WeaponModel extends CarriedModel {
     return {
       ...super.defineSchema(),
       kind: new foundry.data.fields.StringField({
-        choices: choicesFromConfig(TS.weaponKinds),
+        choices: TS.weaponKinds,
         initial: "melee",
       }),
       range: new foundry.data.fields.StringField({
-        choices: choicesFromConfig(TS.ranges),
+        choices: TS.ranges,
         initial: "close",
       }),
       damage: new foundry.data.fields.StringField({
@@ -28,7 +27,7 @@ export default class WeaponModel extends CarriedModel {
         validate: (value) => Roll.validate(value),
       }),
       feats: new foundry.data.fields.SetField(
-        new foundry.data.fields.StringField({ choices: choicesFromConfig(TS.weaponFeats) }),
+        new foundry.data.fields.StringField({ choices: TS.weaponFeats }),
       ),
     };
   }
