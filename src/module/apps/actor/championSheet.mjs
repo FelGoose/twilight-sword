@@ -146,14 +146,6 @@ export class TSChampionSheet extends TSActorSheet {
   }
 
   /**
-   * Equips or unequips an item, up to the maximum number of equipped items.
-   *
-   * @this TSChampionSheet
-   * @param {PointerEvent} event   The originating click event.
-   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
-   * @protected
-   */
-  /**
    * Equips or unequips an item. Armor is worn one piece at a time and does not count toward the equipped limit,
    * so equipping armor swaps out whatever armor was worn.
    *
@@ -177,7 +169,7 @@ export class TSChampionSheet extends TSActorSheet {
     } else {
       const { used, max } = this.actor.system.equipment;
       if (used >= max) {
-        ui.notifications.warn(game.i18n.localize("TS.Inventory.equippedFull"));
+        ui.notifications.warn(game.i18n.format("TS.Inventory.equippedFull", { maxEquipped: max }));
         return;
       }
       updates.push({ _id: item.id, "system.equipped": true });
