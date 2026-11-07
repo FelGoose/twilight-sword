@@ -1,0 +1,99 @@
+.application.sheet.twilight-sword.champion {
+  .equipment-count {
+    margin: -8px 0 14px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--ts-label);
+  }
+
+  .equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .equipment-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+    min-height: 120px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--ts-outline);
+    border-radius: 12px;
+    background: var(--ts-light);
+
+    &.empty {
+      align-items: center;
+      justify-content: center;
+      border-style: dashed;
+      background: transparent;
+      color: var(--ts-label);
+      opacity: 0.7;
+    }
+  }
+
+  .equipment-card-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .equipment-name {
+    flex: 1;
+    font-weight: 700;
+    color: var(--ts-input-text);
+  }
+
+  .equipment-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0;
+
+    dd {
+      margin: 0;
+      padding: 4px;
+      border: 1.5px solid var(--ts-outline);
+      border-radius: 6px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ts-input-text);
+    }
+  }
+
+  .equipment-feats {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ts-label);
+  }
+
+  .armor-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .armor-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .armor-shape {
+    width: 64px;
+    height: 70px;
+    flex-shrink: 0;
+
+    .stat-current {
+      width: 44px;
+      font-size: 26px;
+    }
+  }
+}

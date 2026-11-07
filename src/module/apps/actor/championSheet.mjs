@@ -61,7 +61,7 @@ export class TSChampionSheet extends TSActorSheet {
         active: this.actor.system.conditions[key],
       }));
       context.carried = this.actor.items
-        .filter((item) => (item.type === "item") && !item.system.equipped)
+        .filter((item) => item.takesSlots)
         .map((item) => ({
           id: item.id,
           img: item.img,
@@ -79,8 +79,43 @@ export class TSChampionSheet extends TSActorSheet {
         value: this.actor.system.zin[key],
         label: game.i18n.localize(`TS.Champion.FIELDS.zin.${key}.label`),
       }));
+      context.equipped = this.actor.items
+        .filter((item) => item.system.equipped && (item.type !== "armor"))
+        .map((item) => this.#prepareEquippedItem(item));
+      const { equipment } = this.actor.system;
+      context.emptySlots = Array.from({ length: Math.max(equipment.max - equipment.used, 0) });
+      const armor = this.actor.items.find((item) => (item.type === "armor") && item.system.equipped);
+      context.armor = armor ? {
+        id: armor.id,
+        label: armor.name,
+        type: CONFIG.TS.armorTypes[armor.system.armorType].label,
+      } : null;
     }
     return context;
+  }
+
+  /**
+   * Prepares the display data for an equipped item.
+   *
+   * @param {TSItem} item   The equipped item.
+   * @returns {object} The data the equipment template needs.
+   */
+  #prepareEquippedItem(item) {
+    const data = {
+      id: item.id,
+      label: item.nameWithQuantity,
+      isWeapon: item.type === "weapon",
+    };
+    if (data.isWeapon) {
+      const { weaponKinds, ranges, weaponFeats } = CONFIG.TS;
+      Object.assign(data, {
+        kind: weaponKinds[item.system.kind].label,
+        range: ranges[item.system.range].label,
+        damage: item.system.damage,
+        feats: Array.from(item.system.feats, (feat) => weaponFeats[feat].label).join(", "),
+      });
+    }
+    return data;
   }
 
   /* -------------------------------------------------- */
@@ -118,16 +153,36 @@ export class TSChampionSheet extends TSActorSheet {
    * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
    * @protected
    */
+  /**
+   * Equips or unequips an item. Armor is worn one piece at a time and does not count toward the equipped limit,
+   * so equipping armor swaps out whatever armor was worn.
+   *
+   * @this TSChampionSheet
+   * @param {PointerEvent} event   The originating click event.
+   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action].
+   * @protected
+   */
   static async #toggleEquipped(event, target) {
     const item = this._getEmbeddedDocument(target);
-    const equipping = !item.system.equipped;
-    if (equipping) {
-      const equippedCount = this.actor.items.filter((other) => other.system.equipped).length;
-      if (equippedCount >= CONFIG.TS.inventory.maxEquipped) {
+    const updates = [];
+
+    if (item.system.equipped) {
+      updates.push({ _id: item.id, "system.equipped": false });
+    } else if (item.type === "armor") {
+      const worn = this.actor.items.find((other) => (other.type === "armor") && other.system.equipped);
+      if (worn) {
+        updates.push({ _id: worn.id, "system.equipped": false });
+      }
+      updates.push({ _id: item.id, "system.equipped": true });
+    } else {
+      const { used, max } = this.actor.system.equipment;
+      if (used >= max) {
         ui.notifications.warn(game.i18n.localize("TS.Inventory.equippedFull"));
         return;
       }
+      updates.push({ _id: item.id, "system.equipped": true });
     }
-    await item.update({ "system.equipped": equipping });
+
+    await this.actor.updateEmbeddedDocuments("Item", updates);
   }
 }

@@ -25,6 +25,7 @@
     "css/champion/base.css",
     "css/champion/stats.css",
     "css/champion/identity.css",
+    "css/champion/equipment.css",
     "css/champion/inventory.css",
     "css/chat.css"
   ],
@@ -57,7 +58,9 @@
     },
     "Item": {
       "item": {},
-      "ingredient": {}
+      "ingredient": {},
+      "weapon": {},
+      "armor": {}
     }
   },
   "flags": {

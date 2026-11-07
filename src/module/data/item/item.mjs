@@ -1,28 +1,23 @@
+import CarriedModel from "./carried.mjs";
+
 /**
  * Data model for ordinary carried items.
  */
-export default class ItemModel extends foundry.abstract.TypeDataModel {
+export default class ItemModel extends CarriedModel {
   /** @inheritdoc */
-  static LOCALIZATION_PREFIXES = ["TS.Item"];
+  static LOCALIZATION_PREFIXES = [...super.LOCALIZATION_PREFIXES, "TS.Item"];
 
   /* -------------------------------------------------- */
 
   /** @inheritdoc */
   static defineSchema() {
     return {
-      description: new foundry.data.fields.HTMLField(),
-      slots: new foundry.data.fields.NumberField({
-        integer: true,
-        min: 0,
-        max: 3,
-        initial: 1,
-      }),
+      ...super.defineSchema(),
       quantity: new foundry.data.fields.NumberField({
         integer: true,
         min: 0,
         initial: 1,
       }),
-      equipped: new foundry.data.fields.BooleanField(),
     };
   }
 

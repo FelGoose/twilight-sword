@@ -39,12 +39,6 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
           initial: 0,
         }),
       }),
-      armor: new foundry.data.fields.NumberField({
-        integer: true,
-        min: 0,
-        max: 3,
-        initial: 0,
-      }),
       boon: new foundry.data.fields.BooleanField(),
       conditions: new foundry.data.fields.SchemaField(
         Object.fromEntries(
@@ -90,12 +84,19 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
     this.hearts.max = Math.min(10 + this.abilities.vit.value + this.hearts.bonus, 35);
     this.stamina.max = Math.min(3 + this.stamina.bonus, 8);
 
-    const carried = this.parent.items.filter((item) => (item.type === "item") && !item.system.equipped);
+    const carried = this.parent.items.filter((item) => item.takesSlots);
     this.slots = {
       used: carried.reduce((total, item) => total + item.system.slotsUsed, 0),
       max: this.abilities.str.value * TS.inventory.slotsPerStrength,
     };
     this.encumbered = this.slots.used > this.slots.max;
-  }
 
+    const equipped = this.parent.items.filter((item) => item.system.equipped);
+    const armor = equipped.find((item) => item.type === "armor");
+    this.equipment = {
+      used: equipped.filter((item) => item.type !== "armor").length,
+      max: TS.inventory.maxEquipped,
+    };
+    this.armor = armor?.system.armorValue ?? 0;
+  }
 }

@@ -119,16 +119,76 @@
       "ingredients": "Ingredients and Components",
       "addIngredient": "Add ingredient"
     },
-    "Item": {
-      "defaultName": {
-        "item": "Item",
-        "ingredient": "Ingredient"
-      },
+    "Equipment": {
+      "count": "Equipped {used} / {max}",
+      "empty": "Empty",
+      "armor": "Armor",
+      "noArmor": "No armor",
+      "unequip": "Put away"
+    },
+    "Carried": {
       "FIELDS": {
         "description": { "label": "Description" },
-        "slots": { "label": "Slots" },
-        "quantity": { "label": "Quantity" },
+        "slots": {
+          "label": "Slots",
+          "hint": "Inventory slots used while carried. Equipped items use none."
+        },
         "equipped": { "label": "Equipped" }
+      }
+    },
+    "Item": {
+      "defaultName": {
+        "item": "New Item",
+        "ingredient": "New Ingredient",
+        "weapon": "New Weapon",
+        "armor": "New Armor"
+      },
+      "FIELDS": {
+        "quantity": { "label": "Quantity" }
+      }
+    },
+    "Weapon": {
+      "FIELDS": {
+        "kind": { "label": "Type" },
+        "range": { "label": "Range" },
+        "damage": { "label": "Damage" },
+        "feats": { "label": "Weapon feats" }
+      },
+      "kinds": {
+        "melee": "Melee",
+        "ranged": "Ranged",
+        "shield": "Shield"
+      },
+      "ranges": {
+        "close": "Close",
+        "near": "Near",
+        "far": "Far"
+      },
+      "feats": {
+        "accurate": "Accurate",
+        "arcane": "Arcane",
+        "boomerang": "Boomerang",
+        "defensive": "Defensive",
+        "elemental": "Elemental",
+        "finesse": "Finesse",
+        "heavy": "Heavy",
+        "magic": "Magic",
+        "small": "Small",
+        "thrown": "Thrown",
+        "twoHanded": "Two-handed",
+        "versatile": "Versatile"
+      }
+    },
+    "Armor": {
+      "FIELDS": {
+        "armorType": { "label": "Type" },
+        "armorValue": { "label": "Armor value" }
+      },
+      "types": {
+        "clothing": "Clothing",
+        "light": "Light",
+        "medium": "Medium",
+        "heavy": "Heavy"
       }
     },
     "Ingredient": {
@@ -203,7 +263,9 @@
       "player": "Player"
     },
     "Item": {
-      "item": "Item"
+      "item": "Item",
+      "weapon": "Weapon",
+      "armor": "Armor"
     }
   }
 }

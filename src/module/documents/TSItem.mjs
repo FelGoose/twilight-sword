@@ -26,6 +26,16 @@ export default class TSItem extends foundry.documents.Item {
 
   /* -------------------------------------------------- */
 
+  /**
+   * Whether this item is using inventory slots.
+   * @type {boolean}
+   */
+  get takesSlots() {
+    return (this.system.slotsUsed !== undefined) && !this.system.equipped;
+  }
+
+  /* -------------------------------------------------- */
+
   /** @inheritdoc */
   static defaultName({ type, parent } = {}) {
     const baseName = game.i18n.localize(`TS.Item.defaultName.${type}`);
