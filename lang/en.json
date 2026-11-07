@@ -114,7 +114,7 @@
       "slotsUsed": "Slots used",
       "encumbered": "Encumbered",
       "equip": "Equip or unequip",
-      "equippedFull": "You can only have 3 items equipped.",
+      "equippedFull": "You can only have {maxEquipped} items equipped.",
       "addItem": "Add item",
       "ingredients": "Ingredients and Components",
       "addIngredient": "Add ingredient"
@@ -137,12 +137,6 @@
       }
     },
     "Item": {
-      "defaultName": {
-        "item": "New Item",
-        "ingredient": "New Ingredient",
-        "weapon": "New Weapon",
-        "armor": "New Armor"
-      },
       "FIELDS": {
         "quantity": { "label": "Quantity" }
       }
@@ -264,6 +258,7 @@
     },
     "Item": {
       "item": "Item",
+      "ingredient": "Ingredient",
       "weapon": "Weapon",
       "armor": "Armor"
     }
