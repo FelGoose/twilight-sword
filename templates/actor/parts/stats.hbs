@@ -56,8 +56,9 @@
           {{label}}
         </button>
         {{#if @root.editable}}
-        <input class="ability-score" type="number" name="system.abilities.{{key}}.value" value="{{value}}" min="5"
-          max="10" step="1" aria-label="{{label}}">
+        <input class="ability-score" type="number" name="system.abilities.{{key}}.value" value="{{value}}"
+          min="{{@root.config.TS.abilityScore.min}}" max="{{@root.config.TS.abilityScore.max}}"
+          step="1" aria-label="{{label}}">
         {{else}}
         <span class="ability-score">{{value}}</span>
         {{/if}}

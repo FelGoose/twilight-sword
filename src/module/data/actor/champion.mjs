@@ -30,8 +30,8 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
       stamina: new foundry.data.fields.SchemaField({
         value: new foundry.data.fields.NumberField({
           integer: true,
-          min: 0,
-          initial: 3,
+          min: TS.stamina.min,
+          initial: TS.stamina.base,
         }),
         bonus: new foundry.data.fields.NumberField({
           integer: true,
@@ -69,9 +69,9 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
             new foundry.data.fields.SchemaField({
               value: new foundry.data.fields.NumberField({
                 integer: true,
-                min: 5,
-                max: 10,
-                initial: 5,
+                min: TS.abilityScore.min,
+                max: TS.abilityScore.max,
+                initial: TS.abilityScore.min,
               }),
             }),
           ]),
@@ -81,9 +81,8 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
   }
   /** @inheritdoc */
   prepareDerivedData() {
-    this.hearts.max = Math.min(10 + this.abilities.vit.value + this.hearts.bonus, 35);
-    this.stamina.max = Math.min(3 + this.stamina.bonus, 8);
-
+    this.hearts.max = Math.min(TS.hearts.base + this.abilities.vit.value + this.hearts.bonus, TS.hearts.limit);
+    this.stamina.max = Math.min(TS.stamina.base + this.stamina.bonus, TS.stamina.limit);
     const carried = this.parent.items.filter((item) => item.takesSlots);
     this.slots = {
       used: carried.reduce((total, item) => total + item.system.slotsUsed, 0),

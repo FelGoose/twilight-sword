@@ -18,6 +18,7 @@ Hooks.once("init", () => {
   Object.assign(CONFIG.Item.dataModels, dataModels.Item.config);
 
   CONFIG.Actor.defaultType = "champion";
+
   foundry.applications.handlebars.loadTemplates([
     systemPath("templates/actor/parts/identity.hbs"),
     systemPath("templates/actor/parts/stats.hbs"),
