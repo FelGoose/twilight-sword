@@ -15,7 +15,7 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
       hearts: new foundry.data.fields.SchemaField({
         value: new foundry.data.fields.NumberField({
           integer: true,
-          initial: 1,
+          initial: TS.hearts.base + TS.abilityScore.min,
         }),
         bonus: new foundry.data.fields.NumberField({
           integer: true,
