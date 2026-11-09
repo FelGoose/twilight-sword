@@ -19,7 +19,6 @@
     svg {
       width: 100%;
       height: 100%;
-      fill: var(--ts-panel-bg);
       stroke: var(--ts-outline);
       stroke-width: 2.5;
       stroke-linejoin: round;
@@ -34,6 +33,15 @@
       width: 72px;
       height: 65px;
       margin-left: -20px;
+    }
+
+    &.large svg {
+      fill: var(--ts-light);
+    }
+
+    &.small svg {
+      fill: var(--ts-max-bg);
+      stroke-width: 3;
     }
 
     .stat-current {
@@ -66,7 +74,11 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    margin-top: 10px;
+    transition: fill 0.15s, opacity 0.15s, filter 0.15s;
+
+    circle {
+      fill: var(--ts-panel-bg);
+    }
 
     svg {
       width: 64px;
@@ -79,6 +91,7 @@
     input:checked ~ svg {
       fill: var(--ts-accent);
       opacity: 1;
+      filter: drop-shadow(0 0 6px color-mix(in srgb, var(--ts-accent) 35%, transparent));
     }
 
     input:checked ~ span {
