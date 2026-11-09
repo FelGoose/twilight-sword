@@ -20,7 +20,7 @@ export default class TSActor extends foundry.documents.Actor {
 
   /**
    * Rolls an ability check and posts the result to chat. The rules for roll modes and critical values are
-   * defined in `config.mjs`.
+   * defined in `config.mjs`. Encumbered champions roll with disadvantage.
    *
    * @param {string} key                       The key of the ability, such as "str".
    * @param {object} [options]                 Options for the roll.
@@ -32,7 +32,8 @@ export default class TSActor extends foundry.documents.Actor {
   async rollAbility(key, { advantage = false, disadvantage = false, modifier = 0 } = {}) {
     const { abilityRoll, rollModes } = CONFIG.TS;
 
-    const advantageMode = getAdvantageMode({ advantage, disadvantage });
+    const { encumbered } = this.system;
+    const advantageMode = getAdvantageMode({ advantage, disadvantage: disadvantage || encumbered });
     const clampedModifier = Math.clamp(modifier, -abilityRoll.maxModifier, abilityRoll.maxModifier);
     const abilityValue = this.system.abilities[key].value;
     const target = abilityValue + clampedModifier;
@@ -43,8 +44,8 @@ export default class TSActor extends foundry.documents.Actor {
 
     await this.#postAbilityRoll(roll, {
       rollOutcome,
-      name: this.name,
       target,
+      encumbered,
       abilityLabel: CONFIG.TS.abilities[key].label,
       outcomeLabel: game.i18n.localize(`TS.Roll.outcome.${rollOutcome}`),
       advantageLabel: rollModes[advantageMode].label ?? null,
