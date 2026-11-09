@@ -28,13 +28,13 @@
     --outcome-color: #8e2a8a;
   }
 
-  .ability-roll-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid color-mix(in srgb, var(--outcome-color) 40%, transparent);
+    .ability-roll-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid color-mix(in srgb, var(--outcome-color) 40%, transparent);
 
     .ability {
       font-size: 1.15rem;
@@ -43,11 +43,20 @@
       text-transform: uppercase;
     }
 
+    .roll-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+    }
+
     .roll-mode {
-      padding: 1px 6px;
-      border-radius: 10px;
-      font-size: 0.75rem;
+      padding: 0 5px;
+      border-radius: 8px;
+      font-size: 0.6rem;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
+      opacity: 0.8;
       background: color-mix(in srgb, currentColor 12%, transparent);
     }
   }

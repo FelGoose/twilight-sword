@@ -113,6 +113,7 @@
     "Inventory": {
       "slotsUsed": "Slots used",
       "encumbered": "Encumbered",
+      "encumberedHint": "You are encumbered",
       "equip": "Equip or unequip",
       "equippedFull": "You can only have {maxEquipped} items equipped.",
       "addItem": "Add item",

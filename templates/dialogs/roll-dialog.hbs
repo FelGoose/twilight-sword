@@ -15,6 +15,9 @@
 <div class="form-group">
   <label>{{localize "TS.Roll.disadvantage"}}</label>
   <div class="form-fields">
-    <input type="checkbox" name="disadvantage">
+    <input type="checkbox" name="disadvantage" {{#if encumbered}}checked disabled{{/if}}>
   </div>
+  {{#if encumbered}}
+  <p class="hint">{{localize "TS.Inventory.encumberedHint"}}</p>
+  {{/if}}
 </div>

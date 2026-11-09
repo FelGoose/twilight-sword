@@ -134,7 +134,10 @@ export class TSChampionSheet extends TSActorSheet {
     const key = target.dataset.ability;
     const html = await foundry.applications.handlebars.renderTemplate(
       systemPath("templates/dialogs/roll-dialog.hbs"),
-      { maxModifier: CONFIG.TS.abilityRoll.maxModifier },
+      {
+        maxModifier: CONFIG.TS.abilityRoll.maxModifier,
+        encumbered: this.actor.system.encumbered,
+      },
     );
     const result = await foundry.applications.api.DialogV2.input({
       window: { title: game.i18n.localize("TS.Roll.title") },

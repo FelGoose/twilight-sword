@@ -1,8 +1,11 @@
 <div class="ability-roll {{rollOutcome}}">
   <header class="ability-roll-header">
     <span class="ability">{{abilityLabel}}</span>
+  {{#if (or advantageLabel encumbered)}}
+  <div class="roll-tags">
     {{#if advantageLabel}}<span class="roll-mode">{{advantageLabel}}</span>{{/if}}
     {{#if encumbered}}<span class="roll-mode">{{localize "TS.Inventory.encumbered"}}</span>{{/if}}
+  </div>
   </header>
 
   <div class="ability-roll-result">
