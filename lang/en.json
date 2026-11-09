@@ -106,7 +106,9 @@
       "Identity": {
         "name": "Name",
         "way": "Way",
-        "noWay": "Drop a Way here"
+        "noWay": "Drop a Way here",
+        "kin": "Kin",
+        "noKin": "Drop a Kin here"
       }
     },
     "Inventory": {
@@ -138,7 +140,8 @@
     },
     "Item": {
       "FIELDS": {
-        "quantity": { "label": "Quantity" }
+        "quantity": { "label": "Quantity" },
+        "limitReached": "{type} limit reached: a Champion can have at most {limit}."
       }
     },
     "Weapon": {
@@ -274,8 +277,7 @@
       "weapon": "Weapon",
       "armor": "Armor",
       "way": "Way",
-      "kin": "Kin",
-      "limitReached": "{type} limit reached: a Champion can have at most {limit}."
+      "kin": "Kin"
     }
   }
 }

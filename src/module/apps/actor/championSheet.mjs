@@ -83,12 +83,8 @@ export class TSChampionSheet extends TSActorSheet {
         value: this.actor.system.zin[key],
         label: game.i18n.localize(`TS.Champion.FIELDS.zin.${key}.label`),
       }));
-      context.ways = this.actor.items
-        .filter((item) => item.type === "way")
-        .map((item) => ({
-          id: item.id,
-          label: item.name,
-        }));
+      context.ways = this.#prepareIdentityItems("way");
+      context.kin = this.#prepareIdentityItems("kin");
       context.equipped = this.actor.items
         .filter((item) => item.system.equipped && (item.type !== "armor"))
         .map((item) => this.#prepareEquippedItem(item));
@@ -126,6 +122,18 @@ export class TSChampionSheet extends TSActorSheet {
       });
     }
     return data;
+  }
+
+  /**
+   * Prepares the display data for the items of one type that the sheet lists by name.
+   *
+   * @param {string} type   The item type.
+   * @returns {object[]} An id and label for each item.
+   */
+  #prepareIdentityItems(type) {
+    return this.actor.items
+      .filter((item) => item.type === type)
+      .map((item) => ({ id: item.id, label: item.name }));
   }
 
   /* -------------------------------------------------- */

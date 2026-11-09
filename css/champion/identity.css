@@ -44,11 +44,7 @@
     }
   }
 
-  .way-field {
-    grid-column: 1 / -1;
-  }
-
-  .way-list {
+  .identity-items {
     display: flex;
     flex-wrap: wrap;
     gap: 4px 14px;
@@ -59,7 +55,7 @@
     list-style: none;
   }
 
-  .way {
+  .identity-item {
     display: flex;
     align-items: center;
 
@@ -73,7 +69,7 @@
     }
   }
 
-  .way-name {
+  .identity-item-name {
     width: auto;
     padding: 0;
     color: var(--ts-input-text);
@@ -86,7 +82,7 @@
     }
   }
 
-  .way-empty {
+  .identity-item-empty {
     color: var(--ts-label);
     font-size: 15px;
   }
