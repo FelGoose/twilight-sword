@@ -13,6 +13,7 @@ export class TSChampionSheet extends TSActorSheet {
       width: 1000,
     },
     window: {
+      template: systemPath("templates/actor/champion-sheet.hbs"),
       resizable: true,
     },
     actions: {
@@ -27,7 +28,6 @@ export class TSChampionSheet extends TSActorSheet {
   static PARTS = {
     tabs: TSActorSheet.PARTS.tabs,
     properties: {
-      template: systemPath("templates/actor/champion-sheet.hbs"),
       scrollable: [""],
     },
     effects: TSActorSheet.PARTS.effects,
@@ -144,7 +144,7 @@ export class TSChampionSheet extends TSActorSheet {
       },
     );
     const result = await foundry.applications.api.DialogV2.input({
-      window: { title: game.i18n.localize("TS.Roll.title") },
+      window: { title: game.i18n.format("TS.Roll.rollAbility", { ability: CONFIG.TS.abilities[key].label }) },
       content: html,
     });
 
