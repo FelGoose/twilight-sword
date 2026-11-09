@@ -95,5 +95,9 @@
       width: 44px;
       font-size: 26px;
     }
+
+    svg {
+      fill: var(--ts-light);
+    }
   }
 }
