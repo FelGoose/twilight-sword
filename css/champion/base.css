@@ -15,6 +15,7 @@
   --ts-label: #6E4B2A;
 
   --ts-accent: #0B6E75;
+  --ts-corner: #0E8A8F;
   --ts-danger: #A33A2B;
   --ts-zin-green: #4E9A57;
   --ts-zin-blue: #3A86B8;
@@ -34,7 +35,7 @@
   max-width: 1040px;
 
     .window-content {
-      background: var(--ts-window-bg);
+        background: var(--ts-window-bg);
     }
 
     .window-header {
@@ -83,6 +84,15 @@
     border: 3px solid var(--ts-panel-border);
     border-radius: 4px;
     background: var(--ts-panel-bg);
+    background-image:
+      linear-gradient(135deg, var(--ts-corner) 0 18px, transparent 18px),
+      linear-gradient(225deg, var(--ts-corner) 0 18px, transparent 18px),
+      linear-gradient(45deg, var(--ts-corner) 0 18px, transparent 18px),
+      linear-gradient(315deg, var(--ts-corner) 0 18px, transparent 18px);
+    background-position: top left, top right, bottom left, bottom right;
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 0 5px var(--ts-panel-bg), inset 0 0 0 6px var(--ts-divider);
     color: var(--ts-text);
     padding: 22px 24px;
 
