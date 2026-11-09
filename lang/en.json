@@ -26,9 +26,6 @@
             "label": "Bonus Stamina"
           }
         },
-        "armor": {
-          "label": "Armor"
-        },
         "boon": {
           "label": "Boon"
         },
@@ -115,7 +112,6 @@
       "encumbered": "Encumbered",
       "encumberedHint": "You are encumbered",
       "equip": "Equip or unequip",
-      "equippedFull": "You can only have {maxEquipped} items equipped.",
       "addItem": "Add item",
       "ingredients": "Ingredients and Components",
       "addIngredient": "Add ingredient"
@@ -125,7 +121,8 @@
       "empty": "Empty",
       "armor": "Armor",
       "noArmor": "No armor",
-      "unequip": "Put away"
+      "unequip": "Put away",
+      "equippedFull": "You can only have {maxEquipped} items equipped."
     },
     "Carried": {
       "FIELDS": {

@@ -172,7 +172,7 @@ export class TSChampionSheet extends TSActorSheet {
     } else {
       const { used, max } = this.actor.system.equipment;
       if (used >= max) {
-        ui.notifications.warn(game.i18n.format("TS.Inventory.equippedFull", { maxEquipped: max }));
+        ui.notifications.warn(game.i18n.format("TS.Equipment.equippedFull", { maxEquipped: max }));
         return;
       }
       updates.push({ _id: item.id, "system.equipped": true });
