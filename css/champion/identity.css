@@ -43,4 +43,51 @@
       font-size: 15px;
     }
   }
+
+  .way-field {
+    grid-column: 1 / -1;
+  }
+
+  .way-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    min-height: 1.6em;
+    margin: 0;
+    padding: 4px 2px;
+    border-bottom: 1.5px solid var(--ts-outline);
+    list-style: none;
+  }
+
+  .way {
+    display: flex;
+    align-items: center;
+
+    .item-control {
+      opacity: 0;
+    }
+
+    &:hover .item-control,
+    &:focus-within .item-control {
+      opacity: 1;
+    }
+  }
+
+  .way-name {
+    width: auto;
+    padding: 0;
+    color: var(--ts-input-text);
+    font-family: var(--ts-font-heading);
+    font-size: 17px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--ts-accent);
+    }
+  }
+
+  .way-empty {
+    color: var(--ts-label);
+    font-size: 15px;
+  }
 }

@@ -104,7 +104,9 @@
         "max": "Max"
       },
       "Identity": {
-        "name": "Name"
+        "name": "Name",
+        "way": "Way",
+        "noWay": "Drop a Way here"
       }
     },
     "Inventory": {
@@ -193,7 +195,8 @@
       "FIELDS": {
         "description": { "label": "Description" },
         "startingGear": { "label": "Starting gear" }
-      }
+      },
+      "limitReached": "You can follow at most {limit} Ways."
     },
     "Roll": {
       "title": "Roll Options",

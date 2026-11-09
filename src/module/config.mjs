@@ -72,12 +72,16 @@ TS.conditions = {
 };
 
 /* --------------------------------------------- */
-/* INVENTORY AND ITEMS.                          */
+/* Item Types                                    */
 /* --------------------------------------------- */
 
 TS.inventory = {
   slotsPerStrength: 2,
   maxEquipped: 3,
+};
+
+TS.ways = {
+  limit: 2,
 };
 
 TS.defaultIcons = {

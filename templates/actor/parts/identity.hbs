@@ -20,5 +20,22 @@
       <span class="field-label">{{localize "TS.Champion.FIELDS.origin.label"}}</span>
       <input type="text" name="system.origin" value="{{system.origin}}">
     </label>
+    <div class="field way-field">
+      <span class="field-label">{{localize "TS.Champion.Identity.way"}}</span>
+      <ul class="way-list">
+        {{#each ways}}
+        <li class="way" data-item-id="{{id}}" data-document-class="Item">
+          <button type="button" class="way-name" data-action="viewDoc">{{label}}</button>
+          {{#if @root.editable}}
+          <button type="button" class="item-control" data-action="deleteDoc">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          {{/if}}
+        </li>
+        {{else}}
+        <li class="way-empty">{{localize "TS.Champion.Identity.noWay"}}</li>
+        {{/each}}
+      </ul>
+    </div>
   </div>
 </section>

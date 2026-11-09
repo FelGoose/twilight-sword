@@ -83,6 +83,12 @@ export class TSChampionSheet extends TSActorSheet {
         value: this.actor.system.zin[key],
         label: game.i18n.localize(`TS.Champion.FIELDS.zin.${key}.label`),
       }));
+      context.ways = this.actor.items
+        .filter((item) => item.type === "way")
+        .map((item) => ({
+          id: item.id,
+          label: item.name,
+        }));
       context.equipped = this.actor.items
         .filter((item) => item.system.equipped && (item.type !== "armor"))
         .map((item) => this.#prepareEquippedItem(item));

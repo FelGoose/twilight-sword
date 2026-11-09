@@ -36,6 +36,32 @@ export default class TSItem extends foundry.documents.Item {
 
   /* -------------------------------------------------- */
 
+  /**
+   * Stops a Champion from following more Ways than the rules allow.
+   * Only Ways created inside an actor are checked, so world Ways in the sidebar are not limited.
+   *
+   * @inheritdoc
+   */
+  async _preCreate(data, options, user) {
+    const allowed = await super._preCreate(data, options, user);
+    if (allowed === false) {
+      return false;
+    }
+
+    if ((this.type === "way") && this.parent) {
+      const { limit } = CONFIG.TS.ways;
+      const ways = this.parent.items.filter((item) => item.type === "way");
+      if (ways.length >= limit) {
+        ui.notifications.warn(game.i18n.format("TS.Way.limitReached", { limit }));
+        return false;
+      }
+    }
+
+    return allowed;
+  }
+
+  /* -------------------------------------------------- */
+
   /** @inheritdoc */
   static getDefaultArtwork(itemData) {
     const img = CONFIG.TS.defaultIcons[itemData.type];
