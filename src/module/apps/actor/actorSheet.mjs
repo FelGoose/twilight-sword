@@ -302,12 +302,13 @@ export class TSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorShe
    * @protected
    * @inheritdoc
    */
-  async _processSubmitData(event, form, submitData) {
-    const overrides = foundry.utils.flattenObject(this.actor.overrides);
-    for (const k of Object.keys(overrides)) delete submitData[k];
-    this.document.update(submitData);
-  }
-
+    async _processSubmitData(event, form, submitData, options) {
+      const overrides = foundry.utils.flattenObject(this.actor.overrides);
+      for (const key of Object.keys(overrides)) {
+        foundry.utils.deleteProperty(submitData, key);
+      }
+      return super._processSubmitData(event, form, submitData, options);
+    }
   /* -------------------------------------------------- */
 
   /**
