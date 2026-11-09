@@ -2,6 +2,7 @@
   --ts-panel-bg: #F1F2F6;
   --ts-muted-bg: #E6E8EE;
   --ts-light: #FBFBFD;
+  --ts-window-bg: #E4DCCB;
 
   --ts-panel-border: #B98F5B;
   --ts-outline: #A47B4B;
@@ -21,6 +22,26 @@
   --ts-font-heading: "Cinzel", serif;
 
   font-family: var(--ts-font-body);
+
+  border: 2px solid var(--ts-panel-border);
+  --background: var(--ts-window-bg);
+
+    .window-content {
+      background: var(--ts-window-bg);
+    }
+
+    .window-header {
+      background: var(--ts-window-bg);
+      border-bottom: 1px solid var(--ts-panel-border);
+
+      .window-title {
+        color: var(--ts-text);
+      }
+
+      button.header-control {
+        --button-text-color: var(--ts-text);
+      }
+}
 
   .stat-current,
   .ability-label,
