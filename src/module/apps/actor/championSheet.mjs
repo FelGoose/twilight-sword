@@ -7,6 +7,7 @@ import { systemPath } from "../../constants.mjs";
 export class TSChampionSheet extends TSActorSheet {
   /** @inheritdoc */
   static DEFAULT_OPTIONS = {
+    classes: ["themed", "theme-light"],
     position: {
       height: 1000,
       width: 1000,
