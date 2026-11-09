@@ -198,6 +198,12 @@
       },
       "limitReached": "You can follow at most {limit} Ways."
     },
+    "Kin": {
+      "FIELDS": {
+        "description": { "label": "Description" },
+        "kinFeat": { "label": "Kin feat" }
+      }
+    },
     "Roll": {
       "title": "Roll Options",
       "rolled": "Rolled",
@@ -268,7 +274,8 @@
       "ingredient": "Ingredient",
       "weapon": "Weapon",
       "armor": "Armor",
-      "way": "Way"
+      "way": "Way",
+      "kin": "Kin"
     }
   }
 }

@@ -90,6 +90,7 @@ TS.defaultIcons = {
   weapon: "icons/svg/sword.svg",
   armor: "icons/svg/shield.svg",
   way: "icons/svg/sun.svg",
+  kin: "icons/svg/pawprint.svg",
 };
 
 /* --------------------------------------------- */
