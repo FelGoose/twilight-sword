@@ -140,20 +140,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     cursor: pointer;
 
     .condition-icon {
       display: grid;
       place-items: center;
-      width: 34px;
-      height: 34px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      background: var(--ts-muted-bg);
-      color: var(--ts-outline);
+      background: var(--condition-color);
+      color: var(--ts-light);
+      filter: grayscale(0.85);
       font-size: 18px;
       opacity: 0.6;
-      transition: background 0.15s, color 0.15s, opacity 0.15s;
+      transition: filter 0.15s, opacity 0.15s;
     }
 
     .condition-label {
@@ -164,10 +165,9 @@
     }
 
     input:checked ~ .condition-icon {
-      background: var(--ts-accent);
-      color: var(--ts-light);
+      filter: none;
       opacity: 1;
-      box-shadow: 0 0 0 2px var(--ts-panel-bg), 0 0 0 3.5px var(--ts-accent);
+      box-shadow: 0 0 0 1px var(--ts-panel-bg), 0 0 0 3px color-mix(in srgb, var(--ts-ring) 40%, transparent);
     }
 
     input:focus-visible ~ .condition-icon {

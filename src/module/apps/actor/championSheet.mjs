@@ -62,6 +62,7 @@ export class TSChampionSheet extends TSActorSheet {
         key: key,
         label: condition.label,
         icon: condition.icon,
+        color: condition.color,
         active: this.actor.system.conditions[key],
       }));
       context.carried = this.actor.items

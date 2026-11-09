@@ -59,7 +59,7 @@
     </div>
     <div class="condition-grid">
       {{#each conditions}}
-      <label class="condition">
+      <label class="condition" style="--condition-color: {{color}}">
         <input type="checkbox" name="system.conditions.{{key}}" {{checked active}}>
         <span class="condition-icon">
           <i class="{{icon}}"></i>

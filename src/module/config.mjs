@@ -59,16 +59,16 @@ TS.stamina = {
 /* --------------------------------------------- */
 
 TS.conditions = {
-  poison: { label: "TS.Condition.poison", icon: "fa-solid fa-skull-crossbones" },
-  stun: { label: "TS.Condition.stun", icon: "fa-solid fa-face-dizzy" },
-  confusion: { label: "TS.Condition.confusion", icon: "fa-solid fa-circle-question" },
-  wound: { label: "TS.Condition.wound", icon: "fa-solid fa-bandage" },
-  fear: { label: "TS.Condition.fear", icon: "fa-solid fa-ghost" },
-  freeze: { label: "TS.Condition.freeze", icon: "fa-solid fa-snowflake" },
-  blind: { label: "TS.Condition.blind", icon: "fa-solid fa-eye-slash" },
-  silence: { label: "TS.Condition.silence", icon: "fa-solid fa-volume-xmark" },
-  burn: { label: "TS.Condition.burn", icon: "fa-solid fa-fire" },
-  ko: { label: "TS.Condition.ko", icon: "fa-solid fa-heart-crack" },
+  poison: { label: "TS.Condition.poison", icon: "fa-solid fa-skull-crossbones", color: "#2E7D32" },
+  stun: { label: "TS.Condition.stun", icon: "fa-solid fa-face-dizzy", color: "#A86A00" },
+  confusion: { label: "TS.Condition.confusion", icon: "fa-solid fa-circle-question", color: "#2F5FB3" },
+  wound: { label: "TS.Condition.wound", icon: "fa-solid fa-bandage", color: "#B3322F" },
+  fear: { label: "TS.Condition.fear", icon: "fa-solid fa-ghost", color: "#6A3FA0" },
+  freeze: { label: "TS.Condition.freeze", icon: "fa-solid fa-snowflake", color: "#2B7FA6" },
+  blind: { label: "TS.Condition.blind", icon: "fa-solid fa-eye-slash", color: "#3C8A3C" },
+  silence: { label: "TS.Condition.silence", icon: "fa-solid fa-volume-xmark", color: "#B8457A" },
+  burn: { label: "TS.Condition.burn", icon: "fa-solid fa-fire", color: "#C2571A" },
+  ko: { label: "TS.Condition.ko", icon: "fa-solid fa-heart-crack", color: "#4A1F2E" },
 };
 
 /* --------------------------------------------- */
