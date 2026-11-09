@@ -85,6 +85,7 @@ TS.defaultIcons = {
   ingredient: "icons/svg/pill.svg",
   weapon: "icons/svg/sword.svg",
   armor: "icons/svg/shield.svg",
+  way: "icons/svg/sun.svg",
 };
 
 /* --------------------------------------------- */

@@ -189,6 +189,12 @@
         "quantity": { "label": "Quantity" }
       }
     },
+    "Way": {
+      "FIELDS": {
+        "description": { "label": "Description" },
+        "startingGear": { "label": "Starting gear" }
+      }
+    },
     "Roll": {
       "title": "Roll Options",
       "rolled": "Rolled",
@@ -258,7 +264,8 @@
       "item": "Item",
       "ingredient": "Ingredient",
       "weapon": "Weapon",
-      "armor": "Armor"
+      "armor": "Armor",
+      "way": "Way"
     }
   }
 }
