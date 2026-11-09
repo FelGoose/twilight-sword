@@ -3,7 +3,7 @@
  */
 export default class Player extends foundry.abstract.TypeDataModel {
   /** @inheritdoc */
-  static LOCALIZATION_PREFIXES = ["TS.Combat.player"];
+  static LOCALIZATION_PREFIXES = ["TS.Combat.Player"];
 
   /* -------------------------------------------------- */
 

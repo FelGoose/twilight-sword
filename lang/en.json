@@ -146,17 +146,17 @@
         "damage": { "label": "Damage" },
         "feats": { "label": "Weapon feats" }
       },
-      "kinds": {
+      "Kinds": {
         "melee": "Melee",
         "ranged": "Ranged",
         "shield": "Shield"
       },
-      "ranges": {
+      "Ranges": {
         "close": "Close",
         "near": "Near",
         "far": "Far"
       },
-      "feats": {
+      "Feats": {
         "accurate": "Accurate",
         "arcane": "Arcane",
         "boomerang": "Boomerang",
@@ -176,7 +176,7 @@
         "armorType": { "label": "Type" },
         "armorValue": { "label": "Armor value" }
       },
-      "types": {
+      "Types": {
         "clothing": "Clothing",
         "light": "Light",
         "medium": "Medium",
@@ -197,7 +197,7 @@
       "modifier": "Modifier",
       "advantage": "Advantage",
       "disadvantage": "Disadvantage",
-      "outcome": {
+      "Outcome": {
           "success": "Success",
           "failure": "Failure",
           "criticalSuccess": "Critical Success",
@@ -218,9 +218,9 @@
     },
     "Sheets": {
       "Labels": {
-        "ActorSheet": "Default Actor Sheet",
-        "ItemSheet": "Twilight Sword Item Sheet",
-        "ChampionSheet": "Twilight Sword Champion Sheet"
+        "actorSheet": "Default Actor Sheet",
+        "itemSheet": "Twilight Sword Item Sheet",
+        "championSheet": "Twilight Sword Champion Sheet"
       },
       "Tabs": {
         "properties": "Sheet",
@@ -229,9 +229,9 @@
       }
     },
     "Combat": {
-      "AddPlayer": "Add Player",
-      "AddPlayerCombatTracker": "Add Player to Combat Tracker",
-      "player": {
+      "addPlayer": "Add Player",
+      "addPlayerCombatTracker": "Add Player to Combat Tracker",
+      "Player": {
         "FIELDS": {
           "user": {
             "label": "Player"
@@ -240,11 +240,11 @@
       }
     },
     "Effect": {
-      "Label": "Effect",
-      "Inactive": "Inactive",
-      "Passive": "Passive",
-      "Temporary": "Temporary",
-      "Toggle": "Toggle Effect"
+      "label": "Effect",
+      "inactive": "Inactive",
+      "passive": "Passive",
+      "temporary": "Temporary",
+      "toggle": "Toggle Effect"
     }
   },
   "TYPES": {

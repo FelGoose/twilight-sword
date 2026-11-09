@@ -29,7 +29,7 @@ export default class TSCombat extends foundry.documents.Combat {
       system: {},
     };
     const fdObject = await foundry.applications.api.DialogV2.input({
-      window: { title: "TS.Combat.AddPlayerCombatTracker" },
+      window: { title: "TS.Combat.addPlayerCombatTracker" },
       content: Player.schema.getField("user").toFormGroup().outerHTML,
     });
     foundry.utils.mergeObject(data, fdObject);

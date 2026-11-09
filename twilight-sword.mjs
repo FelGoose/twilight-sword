@@ -29,13 +29,13 @@ Hooks.once("init", () => {
 
   // Document Sheets
   foundry.documents.collections.Actors.registerSheet(systemID, apps.Actor.TSActorSheet, {
-    makeDefault: true, label: "TS.Sheets.Labels.ActorSheet",
+    makeDefault: true, label: "TS.Sheets.Labels.actorSheet",
   });
   foundry.documents.collections.Actors.registerSheet(systemID, apps.Actor.TSChampionSheet, {
-    makeDefault: true, label: "TS.Sheets.Labels.ChampionSheet", types: ["champion"],
+    makeDefault: true, label: "TS.Sheets.Labels.championSheet", types: ["champion"],
   });
   foundry.documents.collections.Items.registerSheet(systemID, apps.Item.TSItemSheet, {
-    makeDefault: true, label: "TS.Sheets.Labels.ItemSheet",
+    makeDefault: true, label: "TS.Sheets.Labels.itemSheet",
   });
 
   // Sidebar tabs

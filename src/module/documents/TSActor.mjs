@@ -47,7 +47,7 @@ export default class TSActor extends foundry.documents.Actor {
       target,
       encumbered,
       abilityLabel: CONFIG.TS.abilities[key].label,
-      outcomeLabel: game.i18n.localize(`TS.Roll.outcome.${rollOutcome}`),
+      outcomeLabel: game.i18n.localize(`TS.Roll.Outcome.${rollOutcome}`),
       advantageLabel: rollModes[advantageMode].label ?? null,
       die,
       abilityValue,

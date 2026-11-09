@@ -6,7 +6,7 @@ export class TSCombatTracker extends foundry.applications.sidebar.tabs.CombatTra
   _getCombatContextOptions() {
     const options = super._getCombatContextOptions();
     options.unshift({
-      name: "TS.Combat.AddPlayer",
+      name: "TS.Combat.addPlayer",
       icon: "<i class=\"fa-solid fa-user\"></i>",
       condition: () => game.user.isGM,
       callback: () => this.viewed.addPlayer(),

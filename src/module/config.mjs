@@ -92,37 +92,37 @@ TS.defaultIcons = {
 /* --------------------------------------------- */
 
 TS.weaponKinds = {
-  melee: { label: "TS.Weapon.kinds.melee" },
-  ranged: { label: "TS.Weapon.kinds.ranged" },
-  shield: { label: "TS.Weapon.kinds.shield" },
+  melee: { label: "TS.Weapon.Kinds.melee" },
+  ranged: { label: "TS.Weapon.Kinds.ranged" },
+  shield: { label: "TS.Weapon.Kinds.shield" },
 };
 
 TS.ranges = {
-  close: { label: "TS.Weapon.ranges.close" },
-  near: { label: "TS.Weapon.ranges.near" },
-  far: { label: "TS.Weapon.ranges.far" },
+  close: { label: "TS.Weapon.Ranges.close" },
+  near: { label: "TS.Weapon.Ranges.near" },
+  far: { label: "TS.Weapon.Ranges.far" },
 };
 
 TS.weaponFeats = {
-  accurate: { label: "TS.Weapon.feats.accurate" },
-  arcane: { label: "TS.Weapon.feats.arcane" },
-  boomerang: { label: "TS.Weapon.feats.boomerang" },
-  defensive: { label: "TS.Weapon.feats.defensive" },
-  elemental: { label: "TS.Weapon.feats.elemental" },
-  finesse: { label: "TS.Weapon.feats.finesse" },
-  heavy: { label: "TS.Weapon.feats.heavy" },
-  magic: { label: "TS.Weapon.feats.magic" },
-  small: { label: "TS.Weapon.feats.small" },
-  thrown: { label: "TS.Weapon.feats.thrown" },
-  twoHanded: { label: "TS.Weapon.feats.twoHanded" },
-  versatile: { label: "TS.Weapon.feats.versatile" },
+  accurate: { label: "TS.Weapon.Feats.accurate" },
+  arcane: { label: "TS.Weapon.Feats.arcane" },
+  boomerang: { label: "TS.Weapon.Feats.boomerang" },
+  defensive: { label: "TS.Weapon.Feats.defensive" },
+  elemental: { label: "TS.Weapon.Feats.elemental" },
+  finesse: { label: "TS.Weapon.Feats.finesse" },
+  heavy: { label: "TS.Weapon.Feats.heavy" },
+  magic: { label: "TS.Weapon.Feats.magic" },
+  small: { label: "TS.Weapon.Feats.small" },
+  thrown: { label: "TS.Weapon.Feats.thrown" },
+  twoHanded: { label: "TS.Weapon.Feats.twoHanded" },
+  versatile: { label: "TS.Weapon.Feats.versatile" },
 };
 
 TS.armorTypes = {
-  clothing: { label: "TS.Armor.types.clothing" },
-  light: { label: "TS.Armor.types.light" },
-  medium: { label: "TS.Armor.types.medium" },
-  heavy: { label: "TS.Armor.types.heavy" },
+  clothing: { label: "TS.Armor.Types.clothing" },
+  light: { label: "TS.Armor.Types.light" },
+  medium: { label: "TS.Armor.Types.medium" },
+  heavy: { label: "TS.Armor.Types.heavy" },
 };
 
 export default TS;
