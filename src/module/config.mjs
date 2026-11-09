@@ -80,8 +80,9 @@ TS.inventory = {
   maxEquipped: 3,
 };
 
-TS.ways = {
-  limit: 2,
+TS.itemLimits = {
+  way: 2,
+  kin: 1,
 };
 
 TS.defaultIcons = {

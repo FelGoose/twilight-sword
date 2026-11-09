@@ -48,15 +48,15 @@ export default class TSItem extends foundry.documents.Item {
       return false;
     }
 
-    if ((this.type === "way") && this.parent) {
-      const { limit } = CONFIG.TS.ways;
-      const ways = this.parent.items.filter((item) => item.type === "way");
-      if (ways.length >= limit) {
-        ui.notifications.warn(game.i18n.format("TS.Way.limitReached", { limit }));
+    const limit = CONFIG.TS.itemLimits[this.type];
+    if (this.parent && (limit !== undefined)) {
+      const count = this.parent.items.filter((item) => item.type === this.type).length;
+      if (count >= limit) {
+        const type = game.i18n.localize(`TYPES.Item.${this.type}`);
+        ui.notifications.warn(game.i18n.format("TS.Item.limitReached", { type, limit }));
         return false;
       }
     }
-
     return allowed;
   }
 

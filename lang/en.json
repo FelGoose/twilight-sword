@@ -195,8 +195,7 @@
       "FIELDS": {
         "description": { "label": "Description" },
         "startingGear": { "label": "Starting gear" }
-      },
-      "limitReached": "You can follow at most {limit} Ways."
+      }
     },
     "Kin": {
       "FIELDS": {
@@ -275,7 +274,8 @@
       "weapon": "Weapon",
       "armor": "Armor",
       "way": "Way",
-      "kin": "Kin"
+      "kin": "Kin",
+      "limitReached": "{type} limit reached: a Champion can have at most {limit}."
     }
   }
 }
