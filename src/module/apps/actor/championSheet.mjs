@@ -10,7 +10,7 @@ export class TSChampionSheet extends TSActorSheet {
     classes: ["themed", "theme-light"],
     position: {
       height: 1000,
-      width: 1000,
+      width: 1040,
     },
     window: {
       resizable: true,
