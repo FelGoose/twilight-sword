@@ -26,6 +26,10 @@
   border: 2px solid var(--ts-panel-border);
   --background: var(--ts-window-bg);
 
+  min-height: 620px;
+  min-width: 1000px;
+  max-width: 1000px;
+
     .window-content {
       background: var(--ts-window-bg);
     }
