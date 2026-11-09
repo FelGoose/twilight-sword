@@ -23,6 +23,50 @@
     }
   }
 
+  .portrait-wrap {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .boon-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+    transition: fill 0.15s, opacity 0.15s, filter 0.15s;
+    position: absolute;
+    right: -12px;
+    bottom: -12px;
+    padding: 6px 12px 4px;
+    border: 1.5px solid var(--ts-outline);
+    border-radius: 12px;
+    background: var(--ts-panel-bg);
+
+    circle {
+      fill: var(--ts-panel-bg);
+    }
+
+    svg {
+      width: 44px;
+      height: 44px;
+      fill: #8C8C96;
+      opacity: 0.45;
+      transition: fill 0.15s, opacity 0.15s;
+    }
+
+    input:checked ~ svg {
+      fill: var(--ts-accent);
+      opacity: 1;
+      filter: drop-shadow(0 0 6px color-mix(in srgb, var(--ts-accent) 35%, transparent));
+    }
+
+    input:checked ~ span {
+      color: var(--ts-accent);
+    }
+  }
+
   .identity-fields {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

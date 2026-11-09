@@ -1,14 +1,23 @@
 <section class="ts-panel panel-identity" aria-label="{{localize "TS.Champion.Panels.identity"}}">
-  <div class="portrait">
-    <img
-      src="{{actor.img}}"
-      alt="{{actor.name}}"
-      {{#if editable}}
-      data-action="editImage"
-      data-edit="img"
-      {{/if}}
-      data-tooltip="{{actor.name}}"
-    >
+  <div class="portrait-wrap">
+    <div class="portrait">
+      <img
+        src="{{actor.img}}"
+        alt="{{actor.name}}"
+        {{#if editable}}
+        data-action="editImage"
+        data-edit="img"
+        {{/if}}
+          data-tooltip="{{actor.name}}"
+        >
+    </div>
+    <label class="boon-toggle">
+      <input type="checkbox" name="system.boon" {{checked system.boon}}>
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 4 L38 24 L58 32 L38 40 L32 60 L26 40 L6 32 L26 24 Z"></path>
+      </svg>
+      <span>{{localize "TS.Champion.FIELDS.boon.label"}}</span>
+    </label>
   </div>
 
   <div class="identity-fields">
