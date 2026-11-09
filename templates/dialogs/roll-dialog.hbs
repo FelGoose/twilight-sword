@@ -1,7 +1,8 @@
 <div class="form-group">
-  <label>{{localize "TS.Roll.modifier"}}</label>
+  <label for="ts-roll-modifier">{{localize "TS.Roll.modifier"}}</label>
   <div class="form-fields">
-    <input type="number" name="modifier" value="0" min="-{{maxModifier}}" max="{{maxModifier}}" step="1">
+    <input type="number" id="ts-roll-modifier" name="modifier" value="0"
+      min="-{{maxModifier}}" max="{{maxModifier}}" step="1">
   </div>
 </div>
 
@@ -13,9 +14,9 @@
 </div>
 
 <div class="form-group">
-  <label>{{localize "TS.Roll.disadvantage"}}</label>
+  <label for="ts-roll-disadvantage">{{localize "TS.Roll.disadvantage"}}</label>
   <div class="form-fields">
-    <input type="checkbox" name="disadvantage" {{#if encumbered}}checked disabled{{/if}}>
+    <input type="checkbox" id="ts-roll-disadvantage" name="disadvantage" {{#if encumbered}}checked disabled{{/if}}>
   </div>
   {{#if encumbered}}
   <p class="hint">{{localize "TS.Inventory.encumberedHint"}}</p>
