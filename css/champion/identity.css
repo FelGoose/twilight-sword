@@ -53,13 +53,23 @@
     padding: 4px 2px;
     border-bottom: 1.5px solid var(--ts-outline);
     list-style: none;
+    flex: 1;
+    align-items: baseline;
+    align-content: flex-end;
   }
 
   .identity-item {
+    position: relative;
     display: flex;
     align-items: center;
 
     .item-control {
+      position: absolute;
+      top: -8px;
+      right: -12px;
+      padding: 0 2px;
+      font-size: 10px;
+      line-height: 1;
       opacity: 0;
     }
 
