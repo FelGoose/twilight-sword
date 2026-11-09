@@ -11,6 +11,9 @@ export class TSChampionSheet extends TSActorSheet {
       height: 1000,
       width: 1000,
     },
+    window: {
+      resizable: true,
+    },
     actions: {
       rollAbility: this.#rollAbility,
       toggleEquipped: this.#toggleEquipped,

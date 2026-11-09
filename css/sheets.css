@@ -1,5 +1,8 @@
 .application.sheet.twilight-sword {
+  min-height: 620px;
   max-height: 90%;
+  min-width: 1000px;
+  max-width: 1000px;
 
   &.actor,
   &.item {
