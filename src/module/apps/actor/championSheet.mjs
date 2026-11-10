@@ -113,6 +113,7 @@ export class TSChampionSheet extends TSActorSheet {
       slotPips: Array.from({ length: maxSlots }, (_, index) => index < item.system.slots),
       isWeapon: item.type === "weapon",
       isArmor: item.type === "armor",
+      description: this.#toPlainText(item.system.description),
     };
     if (data.isWeapon) {
       const { weaponKinds, ranges, weaponFeats } = CONFIG.TS;
@@ -130,6 +131,17 @@ export class TSChampionSheet extends TSActorSheet {
       });
     }
     return data;
+  }
+
+  /**
+   * Converts an HTML description to plain text to fit on inline text.
+   *
+   * @param {string} html   The HTML to convert.
+   * @returns {string} The text content without markup.
+   */
+  #toPlainText(html) {
+    const doc = new DOMParser().parseFromString(html ?? "", "text/html");
+    return doc.body.textContent.trim();
   }
 
   /**

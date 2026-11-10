@@ -1,0 +1,58 @@
+{{!-- <!-- eslint-disable-next-line @html-eslint/require-li-container --> --}}
+<li class="equipment-card draggable" data-item-id="{{id}}" data-document-class="Item">
+  <img class="equipment-art" src="{{img}}" alt="">
+  <div class="equipment-cost">
+    <span class="equipment-zin">{{cost}}</span>
+    <span class="equipment-slots" title="{{localize "TS.Carried.FIELDS.slots.label"}}">
+      {{#each slotPips}}
+      <span class="slot-pip {{#if this}}filled{{/if}}"></span>
+      {{/each}}
+    </span>
+  </div>
+  <div class="equipment-controls">
+    {{#if @root.editable}}
+    <button type="button" class="item-control" data-action="toggleEquipped" title="{{localize "TS.Equipment.unequip"}}">
+      <i class="fa-solid fa-hand"></i>
+    </button>
+    <button type="button" class="item-control" data-action="viewDoc">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+    {{/if}}
+  </div>
+  <span class="equipment-name">{{label}}</span>
+  <span class="equipment-pointer" aria-hidden="true"></span>
+  {{#if isWeapon}}
+  <dl class="equipment-stats">
+    <div>
+      <dt class="field-label">{{localize "TS.Weapon.FIELDS.kind.label"}}</dt>
+      <dd>{{kind}}</dd>
+    </div>
+    <div>
+      <dt class="field-label">{{localize "TS.Weapon.FIELDS.range.label"}}</dt>
+      <dd>{{range}}</dd>
+    </div>
+    <div>
+      <dt class="field-label">{{localize "TS.Weapon.FIELDS.damage.label"}}</dt>
+      <dd>{{damage}}</dd>
+    </div>
+  </dl>
+  <p class="equipment-feats" title="{{feats}}">{{feats}}</p>
+  {{/if}}
+  {{#if isArmor}}
+  <dl class="equipment-stats">
+    <div>
+      <dt class="field-label">{{localize "TS.Armor.FIELDS.armorType.label"}}</dt>
+      <dd>{{type}}</dd>
+    </div>
+    <div>
+      <dt class="field-label">{{localize "TS.Armor.FIELDS.armorValue.label"}}</dt>
+      <dd class="armor-value">{{value}}</dd>
+    </div>
+  </dl>
+  {{/if}}
+  {{#unless isWeapon}}
+  {{#if description}}
+  <p class="equipment-description" title="{{description}}">{{description}}</p>
+  {{/if}}
+  {{/unless}}
+</li>

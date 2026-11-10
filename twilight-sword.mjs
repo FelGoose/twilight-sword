@@ -23,6 +23,7 @@ Hooks.once("init", () => {
     systemPath("templates/actor/parts/identity.hbs"),
     systemPath("templates/actor/parts/stats.hbs"),
     systemPath("templates/actor/parts/equipment.hbs"),
+    systemPath("templates/actor/parts/equipment-card.hbs"),
     systemPath("templates/actor/parts/inventory.hbs"),
     systemPath("templates/actor/parts/feats.hbs"),
   ]);

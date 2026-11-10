@@ -6,71 +6,17 @@
 
   <ul class="equipment-grid">
     {{#each equipped}}
-    <li class="equipment-card draggable" data-item-id="{{id}}" data-document-class="Item">
-      <div class="equipment-card-header">
-        <span class="equipment-name">{{label}}</span>
-        {{#if @root.editable}}
-        <button type="button" class="item-control" data-action="toggleEquipped"
-          title="{{localize "TS.Equipment.unequip"}}">
-          <i class="fa-solid fa-hand"></i>
-        </button>
-        <button type="button" class="item-control" data-action="viewDoc">
-          <i class="fa-solid fa-pen-to-square"></i>
-        </button>
-        {{/if}}
-      </div>
-      {{#if isWeapon}}
-      <dl class="equipment-stats">
-        <div>
-          <dt class="field-label">{{localize "TS.Weapon.FIELDS.kind.label"}}</dt>
-          <dd>{{kind}}</dd>
-        </div>
-        <div>
-          <dt class="field-label">{{localize "TS.Weapon.FIELDS.range.label"}}</dt>
-          <dd>{{range}}</dd>
-        </div>
-        <div>
-          <dt class="field-label">{{localize "TS.Weapon.FIELDS.damage.label"}}</dt>
-          <dd>{{damage}}</dd>
-        </div>
-      </dl>
-      <p class="equipment-feats">{{feats}}</p>
-      {{/if}}
-    </li>
+    {{> "systems/twilight-sword/templates/actor/parts/equipment-card.hbs"}}
     {{/each}}
 
     {{#each emptySlots}}
     <li class="equipment-card empty">{{localize "TS.Equipment.empty"}}</li>
     {{/each}}
 
-    <li class="equipment-card armor-card"
-      {{#if armor}}data-item-id="{{armor.id}}" data-document-class="Item"{{/if}}>
-      <div class="armor-info">
-        <span class="field-label">{{localize "TS.Equipment.armor"}}</span>
-        {{#if armor}}
-        <span class="equipment-name">{{armor.label}}</span>
-        <span class="equipment-feats">{{armor.type}}</span>
-        {{else}}
-        <span class="equipment-feats">{{localize "TS.Equipment.noArmor"}}</span>
-        {{/if}}
-      </div>
-      {{#if armor}}
-      {{#if @root.editable}}
-      <button type="button" class="item-control" data-action="toggleEquipped"
-        title="{{localize "TS.Equipment.unequip"}}">
-        <i class="fa-solid fa-hand"></i>
-      </button>
-      <button type="button" class="item-control" data-action="viewDoc">
-        <i class="fa-solid fa-pen-to-square"></i>
-      </button>
-      {{/if}}
-      {{/if}}
-      <div class="shape-box armor-shape">
-        <svg viewBox="0 0 100 110" aria-hidden="true">
-          <path d="M10 8 H90 V52 C90 80 70 98 50 106 C30 98 10 80 10 52 Z"></path>
-        </svg>
-        <output class="stat-current">{{system.armor}}</output>
-      </div>
-    </li>
+    {{#if armor}}
+    {{> "systems/twilight-sword/templates/actor/parts/equipment-card.hbs" armor}}
+    {{else}}
+    <li class="equipment-card empty">{{localize "TS.Equipment.noArmor"}}</li>
+    {{/if}}
   </ul>
 </section>
