@@ -92,11 +92,7 @@ export class TSChampionSheet extends TSActorSheet {
       const { equipment } = this.actor.system;
       context.emptySlots = Array.from({ length: Math.max(equipment.max - equipment.used, 0) });
       const armor = this.actor.items.find((item) => (item.type === "armor") && item.system.equipped);
-      context.armor = armor ? {
-        id: armor.id,
-        label: armor.name,
-        type: CONFIG.TS.armorTypes[armor.system.armorType].label,
-      } : null;
+      context.armor = armor ? this.#prepareEquippedItem(armor) : null;
     }
     return context;
   }
@@ -108,10 +104,15 @@ export class TSChampionSheet extends TSActorSheet {
    * @returns {object} The data the equipment template needs.
    */
   #prepareEquippedItem(item) {
+    const maxSlots = item.system.schema.getField("slots").max;
     const data = {
       id: item.id,
       label: item.nameWithQuantity,
+      img: item.img,
+      cost: item.system.cost,
+      slotPips: Array.from({ length: maxSlots }, (_, index) => index < item.system.slots),
       isWeapon: item.type === "weapon",
+      isArmor: item.type === "armor",
     };
     if (data.isWeapon) {
       const { weaponKinds, ranges, weaponFeats } = CONFIG.TS;
@@ -120,6 +121,12 @@ export class TSChampionSheet extends TSActorSheet {
         range: ranges[item.system.range].label,
         damage: item.system.damage,
         feats: Array.from(item.system.feats, (feat) => weaponFeats[feat].label).join(", "),
+      });
+    }
+    if (data.isArmor) {
+      Object.assign(data, {
+        type: CONFIG.TS.armorTypes[item.system.armorType].label,
+        value: item.system.armorValue,
       });
     }
     return data;
