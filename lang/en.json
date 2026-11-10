@@ -196,7 +196,8 @@
       "FIELDS": {
         "description": { "label": "Description" },
         "quantity": { "label": "Quantity" }
-      }
+      },
+      "cost": { "label": "Cost", "hint": "Price in Zin." }
     },
     "Way": {
       "FIELDS": {

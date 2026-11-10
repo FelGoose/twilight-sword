@@ -16,6 +16,11 @@ export default class IngredientModel extends foundry.abstract.TypeDataModel {
         min: 0,
         initial: 1,
       }),
+      cost: new foundry.data.fields.NumberField({
+        integer: true,
+        min: 0,
+        initial: 0,
+      }),
     };
   }
 }
