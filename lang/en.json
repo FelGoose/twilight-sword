@@ -135,6 +135,10 @@
           "label": "Slots",
           "hint": "Inventory slots used while carried. Equipped items use none."
         },
+        "cost": {
+          "label": "Cost",
+          "hint": "Price in Zin."
+        },
         "equipped": { "label": "Equipped" }
       }
     },

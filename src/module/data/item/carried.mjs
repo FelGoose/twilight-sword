@@ -17,6 +17,11 @@ export default class CarriedModel extends foundry.abstract.TypeDataModel {
         max: 3,
         initial: 1,
       }),
+      cost: new foundry.data.fields.NumberField({
+        integer: true,
+        min: 0,
+        initial: 0,
+      }),
       equipped: new foundry.data.fields.BooleanField(),
     };
   }
