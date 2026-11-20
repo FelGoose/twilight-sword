@@ -14,6 +14,8 @@ export default class ItemModel extends CarriedModel {
     return {
       ...super.defineSchema(),
       quantity: new foundry.data.fields.NumberField({
+        required: true,
+        nullable: false,
         integer: true,
         min: 0,
         initial: 1,

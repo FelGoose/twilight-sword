@@ -14,26 +14,36 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
       origin: new foundry.data.fields.StringField(),
       hearts: new foundry.data.fields.SchemaField({
         value: new foundry.data.fields.NumberField({
+          required: true,
+          nullable: false,
           integer: true,
           initial: TS.hearts.base + TS.abilityScore.min,
         }),
         bonus: new foundry.data.fields.NumberField({
+          required: true,
+          nullable: false,
           integer: true,
           min: 0,
           initial: 0,
         }),
         temp: new foundry.data.fields.NumberField({
+          required: true,
+          nullable: false,
           integer: true,
           initial: 0,
         }),
       }),
       stamina: new foundry.data.fields.SchemaField({
         value: new foundry.data.fields.NumberField({
+          required: true,
+          nullable: false,
           integer: true,
           min: TS.stamina.min,
           initial: TS.stamina.base,
         }),
         bonus: new foundry.data.fields.NumberField({
+          required: true,
+          nullable: false,
           integer: true,
           min: 0,
           initial: 0,
@@ -47,16 +57,22 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
       ),
       zin: new foundry.data.fields.SchemaField({
         green: new foundry.data.fields.NumberField({
+          required: true,
+          nullable: false,
           integer: true,
           min: 0,
           initial: 0,
         }),
         blue: new foundry.data.fields.NumberField({
+          required: true,
+          nullable: false,
           integer: true,
           min: 0,
           initial: 0,
         }),
         red: new foundry.data.fields.NumberField({
+          required: true,
+          nullable: false,
           integer: true,
           min: 0,
           initial: 0,
@@ -68,6 +84,8 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
             key,
             new foundry.data.fields.SchemaField({
               value: new foundry.data.fields.NumberField({
+                required: true,
+                nullable: false,
                 integer: true,
                 min: TS.abilityScore.min,
                 max: TS.abilityScore.max,

@@ -12,11 +12,15 @@ export default class IngredientModel extends foundry.abstract.TypeDataModel {
     return {
       description: new foundry.data.fields.HTMLField(),
       quantity: new foundry.data.fields.NumberField({
+        required: true,
+        nullable: false,
         integer: true,
         min: 0,
         initial: 1,
       }),
       cost: new foundry.data.fields.NumberField({
+        required: true,
+        nullable: false,
         integer: true,
         min: 0,
         initial: 0,

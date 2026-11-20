@@ -19,6 +19,8 @@ export default class ArmorModel extends CarriedModel {
         initial: "clothing",
       }),
       armorValue: new foundry.data.fields.NumberField({
+        required: true,
+        nullable: false,
         integer: true,
         min: 0,
         max: 3,
