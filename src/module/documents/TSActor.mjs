@@ -2,22 +2,9 @@ import { getAdvantageMode, getRollOutcome } from "../helpers/rolls.mjs";
 import { systemPath } from "../constants.mjs";
 
 /**
- * A simple extension that adds a hook at the end of data prep.
+ * Twilight Sword actors: ability rolls and their chat message.
  */
 export default class TSActor extends foundry.documents.Actor {
-  /** @inheritdoc */
-  prepareDerivedData() {
-    super.prepareDerivedData();
-
-    /**
-     * Flexible hook for modules to alter derived document data.
-     * @param {TSActor} actor      The actor preparing derived data.
-     */
-    Hooks.callAll("TS.prepareActorData", this);
-  }
-
-  /* -------------------------------------------------- */
-
   /**
    * Rolls an ability check and posts the result to chat. The rules for roll modes and critical values are
    * defined in `config.mjs`. Encumbered champions roll with disadvantage.
