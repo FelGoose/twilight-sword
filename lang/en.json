@@ -144,9 +144,9 @@
     },
     "Item": {
       "FIELDS": {
-        "quantity": { "label": "Quantity" },
-        "limitReached": "{type} limit reached: a Champion can have at most {limit}."
-      }
+        "quantity": { "label": "Quantity" }
+      },
+      "limitReached": "{type} limit reached: a Champion can have at most {limit}."
     },
     "Weapon": {
       "FIELDS": {
