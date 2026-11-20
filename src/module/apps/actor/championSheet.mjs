@@ -50,8 +50,8 @@ export class TSChampionSheet extends TSActorSheet {
   /* -------------------------------------------------- */
 
   /** @inheritdoc */
-  async _preparePartContext(partId, context) {
-    context = await super._preparePartContext(partId, context);
+  async _preparePartContext(partId, context, options) {
+    context = await super._preparePartContext(partId, context, options);
     if (partId === "properties") {
       context.abilities = Object.entries(this.actor.system.abilities).map(([key, ability]) => ({
         key: key,
@@ -95,6 +95,16 @@ export class TSChampionSheet extends TSActorSheet {
       context.armor = armor ? this.#prepareEquippedItem(armor) : null;
     }
     return context;
+  }
+
+  /* -------------------------------------------------- */
+
+  /**
+   * The champion sheet draws its own layout, so it needs no generic field list.
+   * @returns {Promise<object[]>} An empty list.
+   */
+  async _getFields() {
+    return [];
   }
 
   /**

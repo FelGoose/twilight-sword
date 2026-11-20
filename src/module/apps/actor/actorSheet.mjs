@@ -102,7 +102,8 @@ export class TSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorShe
   /* -------------------------------------------------- */
 
   /** @inheritdoc */
-  async _preparePartContext(partId, context) {
+  async _preparePartContext(partId, context, options) {
+    context = await super._preparePartContext(partId, context, options);
     switch (partId) {
       case "effects":
         context.effects = prepareActiveEffectCategories(this.actor.allApplicableEffects());
