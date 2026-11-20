@@ -250,17 +250,6 @@
         "effects": "Effects"
       }
     },
-    "Combat": {
-      "addPlayer": "Add Player",
-      "addPlayerCombatTracker": "Add Player to Combat Tracker",
-      "Player": {
-        "FIELDS": {
-          "user": {
-            "label": "Player"
-          }
-        }
-      }
-    },
     "Effect": {
       "label": "Effect",
       "inactive": "Inactive",
@@ -272,9 +261,6 @@
   "TYPES": {
     "Actor": {
       "champion": "Champion"
-    },
-    "Combatant": {
-      "player": "Player"
     },
     "Item": {
       "item": "Item",

@@ -14,7 +14,6 @@ Hooks.once("init", () => {
   }
 
   Object.assign(CONFIG.Actor.dataModels, dataModels.Actor.config);
-  Object.assign(CONFIG.Combatant.dataModels, dataModels.Combatant.config);
   Object.assign(CONFIG.Item.dataModels, dataModels.Item.config);
 
   CONFIG.Actor.defaultType = "champion";
@@ -38,14 +37,9 @@ Hooks.once("init", () => {
   foundry.documents.collections.Items.registerSheet(systemID, apps.Item.TSItemSheet, {
     makeDefault: true, label: "TS.Sheets.Labels.itemSheet",
   });
-
-  // Sidebar tabs
-  CONFIG.ui.combat = apps.Combat.TSCombatTracker;
 });
 
 Hooks.once("i18nInit", () => {
   // Localizing the system's CONFIG object
   localizeHelper(CONFIG.TS);
 });
-
-Hooks.on("renderCombatantConfig", apps.Combatant.hooks.renderCombatantConfig);
