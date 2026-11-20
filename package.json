@@ -6,8 +6,8 @@
     "build": "rollup -c",
     "createSymlinks": "node ./tools/create-symlinks.mjs",
     "postinstall": "npm run createSymlinks",
-    "lint": "eslint twilight-sword.mjs \"src/**/*.mjs\" \"templates/**/*.hbs\"",
-    "lint:fix": "eslint --fix twilight-sword.mjs \"src/**/*.mjs\" \"templates/**/*.hbs\""
+    "lint": "eslint twilight-sword.mjs eslint.config.mjs rollup.config.mjs \"tools/**/*.mjs\" \"src/**/*.mjs\" \"templates/**/*.hbs\"",
+    "lint:fix": "eslint --fix twilight-sword.mjs eslint.config.mjs rollup.config.mjs \"tools/**/*.mjs\" \"src/**/*.mjs\" \"templates/**/*.hbs\""
   },
   "repository": {
     "type": "git",
