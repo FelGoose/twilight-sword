@@ -126,7 +126,8 @@
       "armor": "Armor",
       "noArmor": "No armor",
       "unequip": "Put away",
-      "equippedFull": "You can only have {maxEquipped} items equipped."
+      "equippedFull": "You can only have {maxEquipped} items equipped.",
+      "armorWorn": "Already wearing armor: take it off first."
     },
     "Carried": {
       "FIELDS": {

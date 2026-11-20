@@ -197,8 +197,7 @@ export class TSChampionSheet extends TSActorSheet {
   }
 
   /**
-   * Equips or unequips an item. Armor is worn one piece at a time and does not count toward the equipped limit,
-   * so equipping armor swaps out whatever armor was worn.
+   * Equips or unequips an item. The equip rules live in {@link TSItem#toggleEquipped}.
    *
    * @this TSChampionSheet
    * @param {PointerEvent} event   The originating click event.
@@ -206,26 +205,6 @@ export class TSChampionSheet extends TSActorSheet {
    * @protected
    */
   static async #toggleEquipped(event, target) {
-    const item = this._getEmbeddedDocument(target);
-    const updates = [];
-
-    if (item.system.equipped) {
-      updates.push({ _id: item.id, "system.equipped": false });
-    } else if (item.type === "armor") {
-      const worn = this.actor.items.find((other) => (other.type === "armor") && other.system.equipped);
-      if (worn) {
-        updates.push({ _id: worn.id, "system.equipped": false });
-      }
-      updates.push({ _id: item.id, "system.equipped": true });
-    } else {
-      const { used, max } = this.actor.system.equipment;
-      if (used >= max) {
-        ui.notifications.warn(game.i18n.format("TS.Equipment.equippedFull", { maxEquipped: max }));
-        return;
-      }
-      updates.push({ _id: item.id, "system.equipped": true });
-    }
-
-    await this.actor.updateEmbeddedDocuments("Item", updates);
+    await this._getEmbeddedDocument(target).toggleEquipped();
   }
 }
