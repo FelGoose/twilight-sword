@@ -18,6 +18,14 @@ Hooks.once("init", () => {
 
   CONFIG.Actor.defaultType = "champion";
 
+  // Token bars: max is derived, so Foundry cannot find these bars in the schema
+  CONFIG.Actor.trackableAttributes = {
+    champion: {
+      bar: ["hearts", "stamina"],
+      value: [],
+    },
+  };
+
   foundry.applications.handlebars.loadTemplates([
     systemPath("templates/actor/parts/identity.hbs"),
     systemPath("templates/actor/parts/stats.hbs"),
