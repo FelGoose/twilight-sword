@@ -1,15 +1,16 @@
 /**
- * Twilight Sword items: name with quantity, the inventory slot rule, the per-champion limits
+ * Twilight Sword items: quantity label, the inventory slot rule, the per-champion limits
  * on Ways and Kin, the equip rules (equipped item limit, one worn armor) and default icons per item type.
  */
 export default class TSItem extends foundry.documents.Item {
   /**
-   * The item's name, followed by its (quantity).
+   * The item's quantity as shown on the champion sheet ("x2"), or an empty string for one item
+   * or for types without a quantity.
    * @type {string}
    */
-  get nameWithQuantity() {
+  get quantityLabel() {
     const quantity = this.system.quantity;
-    return quantity > 1 ? `${this.name} (${quantity})` : this.name;
+    return quantity > 1 ? game.i18n.format("TS.Inventory.quantity", { quantity }) : "";
   }
 
   /* -------------------------------------------------- */

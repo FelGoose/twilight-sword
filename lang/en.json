@@ -117,6 +117,7 @@
       "encumberedHint": "You are encumbered",
       "equip": "Equip or unequip",
       "addItem": "Add item",
+      "quantity": "x{quantity}",
       "ingredients": "Ingredients and Components",
       "addIngredient": "Add ingredient"
     },

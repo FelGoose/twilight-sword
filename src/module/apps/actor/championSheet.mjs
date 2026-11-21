@@ -70,14 +70,17 @@ export class TSChampionSheet extends TSActorSheet {
         .map((item) => ({
           id: item.id,
           img: item.img,
-          label: item.nameWithQuantity,
+          label: item.name,
+          quantity: item.quantityLabel,
           slotsUsed: item.system.slotsUsed,
+          slotPips: this.#slotPips(item),
         }));
       context.ingredients = this.actor.items
         .filter((item) => item.type === "ingredient")
         .map((item) => ({
           id: item.id,
-          label: item.nameWithQuantity,
+          label: item.name,
+          quantity: item.quantityLabel,
         }));
       context.zin = Object.keys(this.actor.system.zin).map((key) => ({
         key: key,
@@ -108,19 +111,31 @@ export class TSChampionSheet extends TSActorSheet {
   }
 
   /**
+   * Builds the slot pips shown on item cards and inventory rows: one pip per possible slot,
+   * filled for each slot one of this item takes.
+   *
+   * @param {TSItem} item   An item with slots.
+   * @returns {boolean[]} One entry per pip, `true` when filled.
+   */
+  #slotPips(item) {
+    const maxSlots = item.system.schema.getField("slots").max;
+    return Array.from({ length: maxSlots }, (_, index) => index < item.system.slots);
+  }
+
+  /**
    * Prepares the display data for an equipped item.
    *
    * @param {TSItem} item   The equipped item.
    * @returns {object} The data the equipment template needs.
    */
   #prepareEquippedItem(item) {
-    const maxSlots = item.system.schema.getField("slots").max;
     const data = {
       id: item.id,
-      label: item.nameWithQuantity,
+      label: item.name,
+      quantity: item.quantityLabel,
       img: item.img,
       cost: item.system.cost,
-      slotPips: Array.from({ length: maxSlots }, (_, index) => index < item.system.slots),
+      slotPips: this.#slotPips(item),
       isWeapon: item.type === "weapon",
       isArmor: item.type === "armor",
       description: this.#toPlainText(item.system.description),

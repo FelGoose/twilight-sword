@@ -3,11 +3,16 @@
   <img class="equipment-art" src="{{img}}" alt="">
   <div class="equipment-cost">
     <span class="equipment-zin">{{cost}}</span>
-    <span class="equipment-slots" title="{{localize "TS.Carried.FIELDS.slots.label"}}">
-      {{#each slotPips}}
-      <span class="slot-pip {{#if this}}filled{{/if}}"></span>
-      {{/each}}
-    </span>
+    <div class="equipment-slot-row">
+      {{#if quantity}}
+      <span class="equipment-quantity" title="{{localize "TS.Item.FIELDS.quantity.label"}}">{{quantity}}</span>
+      {{/if}}
+      <span class="equipment-slots" title="{{localize "TS.Carried.FIELDS.slots.label"}}">
+        {{#each slotPips}}
+        <span class="slot-pip {{#if this}}filled{{/if}}"></span>
+        {{/each}}
+      </span>
+    </div>
   </div>
   <div class="equipment-controls">
     {{#if @root.editable}}

@@ -78,6 +78,19 @@
     }
   }
 
+  .equipment-slot-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .equipment-quantity {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--ts-accent);
+  }
+
   .equipment-slots {
     display: flex;
     gap: 3px;

@@ -105,11 +105,23 @@
     flex: 1;
   }
 
-  .item-slots {
-    min-width: 24px;
-    text-align: center;
+  .item-quantity {
     font-weight: 700;
     color: var(--ts-accent);
+  }
+
+  .item-slots {
+    display: flex;
+    gap: 3px;
+
+    .slot-pip {
+      width: 14px;
+      height: 14px;
+
+      &.filled {
+        background: var(--ts-accent);
+      }
+    }
   }
 
   .item-control,
