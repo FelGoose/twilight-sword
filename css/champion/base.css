@@ -135,9 +135,7 @@
     }
   }
 
-  .panel-equipment,
-  .panel-inventory,
-  .panel-feats {
+  .panel-equipment {
     grid-column: 1 / -1;
   }
 }

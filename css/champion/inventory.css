@@ -2,6 +2,7 @@
 
   .inventory-header {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     gap: 24px;
@@ -71,8 +72,7 @@
 
   .item-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 32px;
+    grid-template-columns: minmax(0, 1fr);
     margin: 0 0 12px;
     padding: 0;
     list-style: none;
@@ -83,7 +83,8 @@
   }
 
   .ingredient-list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 32px;
     margin-top: 4px;
   }
 
