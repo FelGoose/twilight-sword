@@ -47,7 +47,7 @@
   }
 
   .equipment-art[src$=".svg"] {
-    filter: brightness(0.33) opacity(0.6);
+    filter: brightness(0.45) sepia(1) saturate(2) opacity(0.45);
   }
 
   .equipment-cost {
