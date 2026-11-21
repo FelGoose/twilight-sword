@@ -79,6 +79,7 @@ export class TSChampionSheet extends TSActorSheet {
         .filter((item) => item.type === "ingredient")
         .map((item) => ({
           id: item.id,
+          img: item.img,
           label: item.name,
           quantity: item.quantityLabel,
         }));
