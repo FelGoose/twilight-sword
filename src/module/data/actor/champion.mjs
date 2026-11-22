@@ -1,3 +1,4 @@
+import { countEquipped, toEquipEntry } from "../../helpers/equipment.mjs";
 import TS from "../../config.mjs";
 /**
  * Data model for Twilight Sword champions.
@@ -111,7 +112,7 @@ export default class ChampionModel extends foundry.abstract.TypeDataModel {
     const equipped = this.parent.items.filter((item) => item.system.equipped);
     const armor = equipped.find((item) => item.type === "armor");
     this.equipment = {
-      used: equipped.filter((item) => item.type !== "armor").length,
+      used: countEquipped(equipped.filter((item) => item.type !== "armor").map(toEquipEntry)),
       max: TS.inventory.maxEquipped,
     };
     this.armor = armor?.system.armorValue ?? 0;
