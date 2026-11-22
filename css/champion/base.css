@@ -66,8 +66,8 @@
     box-shadow: none;
   }
 
-  input,
-  button {
+  /* Content only: the header buttons carry their Font Awesome icon classes on the button itself. */
+  .window-content :is(input, button) {
     font-family: inherit;
   }
 
