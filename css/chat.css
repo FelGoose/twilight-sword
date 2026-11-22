@@ -1,4 +1,4 @@
-.ability-roll {
+.twilight-sword.ability-roll {
   --outcome-color: #8a8a8a;
 
   display: flex;
@@ -82,7 +82,7 @@
     }
 
     .die,
-    .abilityTarget {
+    .ability-target {
       display: grid;
       place-items: center;
       width: 44px;
@@ -101,7 +101,7 @@
       }
     }
 
-    .abilityTarget {
+    .ability-target {
       border: 2px dashed color-mix(in srgb, currentColor 35%, transparent);
     }
 
@@ -118,7 +118,7 @@
     }
   }
 
-  .outcomeLabel {
+  .outcome-label {
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 0.06em;

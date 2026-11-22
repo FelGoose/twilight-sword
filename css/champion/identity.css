@@ -69,7 +69,7 @@
 
   .identity-fields {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: var(--ts-two-columns);
     gap: 22px 28px;
     margin-top: 28px;
   }

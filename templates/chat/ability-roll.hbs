@@ -1,4 +1,4 @@
-<div class="ability-roll {{rollOutcome}}">
+<div class="twilight-sword ability-roll {{rollOutcome}}">
   <header class="ability-roll-header">
     <span class="ability">{{abilityLabel}}</span>
     {{#if (or advantageLabel encumbered)}}
@@ -18,13 +18,13 @@
     <span class="versus"></span>
     <div class="result-block">
       <span class="result-label">{{localize "TS.Roll.target"}}</span>
-      <span class="abilityTarget">{{target}}</span>
+      <span class="ability-target">{{target}}</span>
       {{#if modifier}}<span class="target-breakdown">{{abilityValue}} {{modifier}}</span>{{/if}}
     </div>
     {{/unless}}
   </div>
 
-  <div class="outcomeLabel">{{outcomeLabel}}</div>
+  <div class="outcome-label">{{outcomeLabel}}</div>
 
   {{{rollHTML}}}
 </div>
