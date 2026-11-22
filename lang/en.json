@@ -127,6 +127,7 @@
       "armor": "Armor",
       "noArmor": "No armor",
       "unequip": "Put away",
+      "reserved": "Second slot taken by {name}",
       "equippedFull": "You can only have {maxEquipped} items equipped.",
       "armorWorn": "Already wearing armor: take it off first."
     },

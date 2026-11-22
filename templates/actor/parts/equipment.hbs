@@ -6,7 +6,17 @@
 
   <ul class="equipment-grid">
     {{#each equipped}}
+    {{#if isPair}}
+    {{> "systems/twilight-sword/templates/actor/parts/equipment-pair.hbs"}}
+    {{else if isReserved}}
+    <li class="equipment-card reserved">
+      <img class="equipment-art" src="{{img}}" alt="">
+      <span class="reserved-badge">{{@root.heavyLabel}}</span>
+      <span class="reserved-text">{{localize "TS.Equipment.reserved" name=label}}</span>
+    </li>
+    {{else}}
     {{> "systems/twilight-sword/templates/actor/parts/equipment-card.hbs"}}
+    {{/if}}
     {{/each}}
 
     {{#each emptySlots}}

@@ -1,3 +1,4 @@
+import { groupEquipped, toEquipEntry } from "../../helpers/equipment.mjs";
 import { TSActorSheet } from "./actorSheet.mjs";
 import { systemPath } from "../../constants.mjs";
 
@@ -90,9 +91,8 @@ export class TSChampionSheet extends TSActorSheet {
       }));
       context.ways = this.#prepareIdentityItems("way");
       context.kin = this.#prepareIdentityItems("kin");
-      context.equipped = this.actor.items
-        .filter((item) => item.system.equipped && (item.type !== "armor"))
-        .map((item) => this.#prepareEquippedItem(item));
+      context.equipped = this.#prepareEquipmentRow();
+      context.heavyLabel = CONFIG.TS.weaponFeats.heavy.label;
       const { equipment } = this.actor.system;
       context.emptySlots = Array.from({ length: Math.max(equipment.max - equipment.used, 0) });
       const armor = this.actor.items.find((item) => (item.type === "armor") && item.system.equipped);
@@ -121,6 +121,33 @@ export class TSChampionSheet extends TSActorSheet {
   #slotPips(item) {
     const maxSlots = item.system.schema.getField("slots").max;
     return Array.from({ length: maxSlots }, (_, index) => index < item.system.slots);
+  }
+
+  /**
+   * Prepares the equipment row (armor excluded) from the slot groups of {@link groupEquipped}: a normal card per
+   * item, a reserved box after a heavy weapon, and one stacked card per small pair. The pair's front card is
+   * chosen with core tabs, which remember the choice in `this.tabGroups`.
+   *
+   * @returns {object[]} One entry per box in the row.
+   */
+  #prepareEquipmentRow() {
+    const items = this.actor.items.filter((item) => item.system.equipped && (item.type !== "armor"));
+    const groups = groupEquipped(items.map(toEquipEntry));
+    return groups.flatMap(({ entries, slots }) => {
+      const cards = entries.map((entry) => this.#prepareEquippedItem(this.actor.items.get(entry.id)));
+      if (cards.length === 2) {
+        const group = `pair-${cards[0].id}`;
+        const front = cards.some((card) => card.id === this.tabGroups[group]) ? this.tabGroups[group] : cards[0].id;
+        for (const card of cards) {
+          card.active = card.id === front;
+        }
+        return [{ isPair: true, group, cards }];
+      }
+      if (slots === 2) {
+        return [cards[0], { isReserved: true, label: cards[0].label, img: cards[0].img }];
+      }
+      return cards;
+    });
   }
 
   /**

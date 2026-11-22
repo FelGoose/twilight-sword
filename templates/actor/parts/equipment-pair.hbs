@@ -1,0 +1,14 @@
+{{!-- <!-- eslint-disable-next-line @html-eslint/require-li-container --> --}}
+<li class="equipment-pair">
+  <nav class="tabs pair-tabs">
+    {{#each cards}}
+    <button type="button" class="pair-tab {{#if active}}active{{/if}}" aria-pressed="{{#if active}}true{{else}}false{{/if}}"
+      data-action="tab" data-group="{{../group}}" data-tab="{{id}}">{{label}}</button>
+    {{/each}}
+  </nav>
+  {{#each cards}}
+  <ul class="tab pair-face {{#if active}}active{{/if}}" data-group="{{../group}}" data-tab="{{id}}">
+    {{> "systems/twilight-sword/templates/actor/parts/equipment-card.hbs"}}
+  </ul>
+  {{/each}}
+</li>
