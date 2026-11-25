@@ -29,6 +29,9 @@
         "boon": {
           "label": "Boon"
         },
+        "conditions": {
+          "label": "Conditions"
+        },
         "zin": {
           "label": "Zin",
           "green": {
@@ -124,7 +127,6 @@
     "Equipment": {
       "count": "Equipped {used} / {max}",
       "empty": "Empty",
-      "armor": "Armor",
       "noArmor": "No armor",
       "unequip": "Put away",
       "reserved": "Second slot taken by {name}",
@@ -198,9 +200,9 @@
     "Ingredient": {
       "FIELDS": {
         "description": { "label": "Description" },
-        "quantity": { "label": "Quantity" }
-      },
-      "cost": { "label": "Cost", "hint": "Price in Zin." }
+        "quantity": { "label": "Quantity" },
+        "cost": { "label": "Cost", "hint": "Price in Zin." }
+      }
     },
     "Way": {
       "FIELDS": {
