@@ -61,10 +61,10 @@
         title="{{localize "TS.Inventory.equip"}}">
         <i class="fa-solid fa-hand"></i>
       </button>
-      <button type="button" class="item-control" data-action="viewDoc">
+      <button type="button" class="item-control" data-action="viewDoc" title="{{localize 'DOCUMENT.Update' type=(localize 'DOCUMENT.Item')}}">
         <i class="fa-solid fa-pen-to-square"></i>
       </button>
-      <button type="button" class="item-control" data-action="deleteDoc">
+      <button type="button" class="item-control" data-action="deleteDoc" title="{{localize 'DOCUMENT.Delete' type=(localize 'DOCUMENT.Item')}}">
         <i class="fa-solid fa-trash"></i>
       </button>
       {{/if}}
@@ -91,10 +91,10 @@
         <span class="item-quantity" title="{{localize "TS.Item.FIELDS.quantity.label"}}">{{quantity}}</span>
         {{/if}}
         {{#if @root.editable}}
-        <button type="button" class="item-control" data-action="viewDoc">
+        <button type="button" class="item-control" data-action="viewDoc" title="{{localize 'DOCUMENT.Update' type=(localize 'DOCUMENT.Item')}}">
           <i class="fa-solid fa-pen-to-square"></i>
         </button>
-        <button type="button" class="item-control" data-action="deleteDoc">
+        <button type="button" class="item-control" data-action="deleteDoc" title="{{localize 'DOCUMENT.Delete' type=(localize 'DOCUMENT.Item')}}">
           <i class="fa-solid fa-trash"></i>
         </button>
         {{/if}}

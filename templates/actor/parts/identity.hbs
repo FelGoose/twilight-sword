@@ -36,7 +36,7 @@
         <li class="identity-item" data-item-id="{{id}}" data-document-class="Item">
           <button type="button" class="identity-item-name" data-action="viewDoc">{{label}}</button>
           {{#if @root.editable}}
-          <button type="button" class="item-control" data-action="deleteDoc">
+          <button type="button" class="item-control" data-action="deleteDoc" title="{{localize 'DOCUMENT.Delete' type=(localize 'DOCUMENT.Item')}}">
             <i class="fa-solid fa-xmark"></i>
           </button>
           {{/if}}
@@ -53,7 +53,7 @@
         <li class="identity-item" data-item-id="{{id}}" data-document-class="Item">
           <button type="button" class="identity-item-name" data-action="viewDoc">{{label}}</button>
           {{#if @root.editable}}
-          <button type="button" class="item-control" data-action="deleteDoc">
+          <button type="button" class="item-control" data-action="deleteDoc" title="{{localize 'DOCUMENT.Delete' type=(localize 'DOCUMENT.Item')}}">
             <i class="fa-solid fa-xmark"></i>
           </button>
           {{/if}}
