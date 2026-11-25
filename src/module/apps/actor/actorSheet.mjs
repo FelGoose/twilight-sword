@@ -318,7 +318,7 @@ export class TSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorShe
   #disableOverrides() {
     const flatOverrides = foundry.utils.flattenObject(this.actor.overrides);
     for (const override of Object.keys(flatOverrides)) {
-      const input = this.element.querySelector(`[name="${override}"]`);
+      const input = this.element.querySelector(`[name="${CSS.escape(override)}"]`);
       if (input) input.disabled = true;
     }
   }
