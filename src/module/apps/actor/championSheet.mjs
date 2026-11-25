@@ -248,6 +248,8 @@ export class TSChampionSheet extends TSActorSheet {
    * @protected
    */
   static async #toggleEquipped(event, target) {
-    await this._getEmbeddedDocument(target).toggleEquipped();
+    const item = this._getEmbeddedDocument(target);
+    if (!item) return;
+    await item.toggleEquipped();
   }
 }

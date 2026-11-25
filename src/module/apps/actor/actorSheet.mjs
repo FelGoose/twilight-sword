@@ -208,6 +208,7 @@ export class TSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorShe
    */
   static async #viewDoc(event, target) {
     const doc = this._getEmbeddedDocument(target);
+    if (!doc) return;
     doc.sheet.render(true);
   }
 
@@ -223,7 +224,8 @@ export class TSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorShe
    */
   static async #deleteDoc(event, target) {
     const doc = this._getEmbeddedDocument(target);
-    doc.delete();
+    if (!doc) return;
+    await doc.deleteDialog();
   }
 
   /* -------------------------------------------------- */
@@ -248,7 +250,7 @@ export class TSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorShe
       if (["action", "documentClass"].includes(dataKey)) continue;
       foundry.utils.setProperty(docData, dataKey, value);
     }
-    docCls.create(docData, { parent: this.actor });
+    await docCls.create(docData, { parent: this.actor });
   }
 
   /* -------------------------------------------------- */
@@ -263,7 +265,8 @@ export class TSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorShe
    */
   static async #toggleEffect(event, target) {
     const effect = this._getEmbeddedDocument(target);
-    effect.update({ disabled: !effect.disabled });
+    if (!effect) return;
+    await effect.update({ disabled: !effect.disabled });
   }
 
   /* -------------------------------------------------- */
@@ -274,17 +277,18 @@ export class TSActorSheet extends api.HandlebarsApplicationMixin(sheets.ActorShe
    * Fetches the embedded document representing the containing HTML element.
    *
    * @param {HTMLElement} target      The element subject to search.
-   * @returns {Item|ActiveEffect}     The embedded Item or ActiveEffect.
+   * @returns {Item|ActiveEffect|undefined}   The embedded Item or ActiveEffect, or undefined if none is found.
    */
   _getEmbeddedDocument(target) {
     const docRow = target.closest("li[data-document-class]");
+    if (!docRow) return undefined;
     if (docRow.dataset.documentClass === "Item") {
       return this.actor.items.get(docRow.dataset.itemId);
     } else if (docRow.dataset.documentClass === "ActiveEffect") {
       const parent = docRow.dataset.parentId === this.actor.id ?
         this.actor :
-        this.actor.items.get(docRow?.dataset.parentId);
-      return parent.effects.get(docRow.dataset.effectId);
+        this.actor.items.get(docRow.dataset.parentId);
+      return parent?.effects.get(docRow.dataset.effectId);
     } else {
       console.warn("Could not find document class");
     }
