@@ -80,6 +80,10 @@ TS.inventory = {
   maxEquipped: 3,
 };
 
+TS.itemSlots = {
+  limit: 3,
+};
+
 TS.itemLimits = {
   way: 2,
   kin: 1,
@@ -130,6 +134,10 @@ TS.armorTypes = {
   light: { label: "TS.Armor.Types.light" },
   medium: { label: "TS.Armor.Types.medium" },
   heavy: { label: "TS.Armor.Types.heavy" },
+};
+
+TS.armorValue = {
+  limit: 3,
 };
 
 export default TS;

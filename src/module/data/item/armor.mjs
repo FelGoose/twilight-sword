@@ -23,7 +23,7 @@ export default class ArmorModel extends CarriedModel {
         nullable: false,
         integer: true,
         min: 0,
-        max: 3,
+        max: TS.armorValue.limit,
         initial: 0,
       }),
     };

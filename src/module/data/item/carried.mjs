@@ -1,3 +1,5 @@
+import TS from "../../config.mjs";
+
 /**
  * Base data for items that take up inventory slots while they are carried.
  */
@@ -16,7 +18,7 @@ export default class CarriedModel extends foundry.abstract.TypeDataModel {
         nullable: false,
         integer: true,
         min: 0,
-        max: 3,
+        max: TS.itemSlots.limit,
         initial: 1,
       }),
       cost: new foundry.data.fields.NumberField({
