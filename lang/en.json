@@ -217,7 +217,6 @@
       }
     },
     "Roll": {
-      "title": "Roll Options",
       "rolled": "Rolled",
       "rollAbility": "Roll {ability}",
       "target": "Target",
