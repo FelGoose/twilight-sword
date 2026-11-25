@@ -27,6 +27,7 @@ export default class ItemModel extends CarriedModel {
 
   /** @inheritdoc */
   prepareDerivedData() {
+    super.prepareDerivedData();
     this.slotsUsed = this.slots * this.quantity;
   }
 }
